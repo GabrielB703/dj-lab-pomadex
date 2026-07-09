@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ LAB Classes — A Project by Pomadex Productions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{--ink:#0d0f10;--ink-2:#15181a;--paper:#f6f4ee;--paper-dim:#c9c6bc;--cyan:#35E38A;--cyan-deep:#0E9D5A;--amber:#35E38A;--line:rgba(246,244,238,0.12);--line-soft:rgba(246,244,238,0.07);--mono:'JetBrains Mono',monospace;--display:'Archivo Black',sans-serif;--body:'Inter',sans-serif;}*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;background:var(--ink);}body{background:var(--ink);color:var(--paper);font-family:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased;}::selection{background:var(--cyan);color:var(--ink);}a{color:inherit;text-decoration:none;}ul{list-style:none;}button{font-family:inherit;cursor:pointer;}.wrap{max-width:1240px;margin:0 auto;padding:0 32px;}img{max-width:100%;display:block;}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:var(--ink);border-bottom:1px solid var(--line);transition:padding .3s ease,box-shadow .3s ease;}nav.scrolled{padding:14px 32px;box-shadow:0 8px 24px -12px rgba(0,0,0,0.5);}.nav-mark{display:flex;align-items:center;gap:14px;}.nav-mark img{height:30px;width:auto;display:block;transition:height .3s ease;}nav.scrolled .nav-mark img{height:24px;}.nav-mark-divider{width:1px;height:24px;background:var(--line);flex:none;transition:height .3s ease;}nav.scrolled .nav-mark-divider{height:19px;}.nav-mark-subject{font-family:var(--mono);font-size:10px;line-height:1.3;letter-spacing:0.09em;text-transform:uppercase;color:rgba(246,244,238,0.55);white-space:nowrap;}.nav-mark-subject strong{display:block;color:var(--paper);font-weight:500;}@media(max-width:640px){.nav-mark-divider,.nav-mark-subject{display:none;}}.nav-links{display:flex;gap:17px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;max-width:56vw;}.nav-links::-webkit-scrollbar{display:none;}.nav-links a{opacity:0.6;transition:opacity .2s,color .2s;position:relative;white-space:nowrap;padding-bottom:2px;}.nav-links a:hover{opacity:1;}.nav-links a.active{opacity:1;color:var(--cyan);}.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--cyan);}.nav-cta{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:11px 22px;border:1px solid var(--paper);border-radius:2px;transition:all .25s;background:none;color:var(--paper);}.nav-cta:hover{background:var(--cyan);border-color:var(--cyan);color:var(--ink);}.scroll-progress{position:fixed;left:0;right:0;top:71px;z-index:190;display:flex;align-items:center;gap:3px;height:20px;padding:0 20px;transition:top .3s ease;}.scroll-progress.scrolled{top:53px;}.sp-seg{position:relative;flex:1;height:3px;background:var(--line);border-radius:2px;cursor:pointer;transition:height .2s ease,background .2s ease;}.sp-seg-fill{position:absolute;inset:0;width:0%;background:var(--cyan);border-radius:2px;transition:width .12s linear;}.sp-seg:hover{background:rgba(53,227,138,0.28);}.sp-seg.active{height:5px;}.sp-seg.active .sp-seg-fill{box-shadow:0 0 8px rgba(53,227,138,0.65);}.sp-seg-label{position:absolute;top:13px;left:50%;transform:translateX(-50%) translateY(-3px);font-family:var(--mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--paper);background:var(--ink-2);border:1px solid var(--line);padding:3px 7px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s ease,transform .18s ease;z-index:5;}.sp-seg:hover .sp-seg-label{opacity:1;transform:translateX(-50%) translateY(0);}@media(max-width:1000px){.scroll-progress{padding:0 14px;gap:2px;}.sp-seg-label{display:none;}}@media(max-width:1000px){.nav-links{display:none;}.nav-cta{padding:9px 16px;font-size:10px;}}.nav-cta-group{display:flex;align-items:center;gap:10px;}.nav-cta-ghost{border-color:var(--line);color:rgba(246,244,238,0.65);}.nav-cta-ghost:hover{background:none;border-color:var(--paper);color:var(--paper);}@media(max-width:1080px){.nav-cta-group{gap:6px;}.nav-cta{padding:9px 14px;font-size:9.5px;}}@media(max-width:1000px){.nav-cta-group .nav-cta-ghost{display:none;}}@media(max-width:480px){.nav-cta{padding:8px 12px;font-size:9px;}}@media(prefers-reduced-motion:reduce){.g3d-spin,.holo-globe-rings,.holo-globe-scan,.g3d-dot.hl{animation:none !important;}}.holo-globe.g-paused .g3d-spin,.holo-globe.g-paused .holo-globe-rings,.holo-globe.g-paused .holo-globe-scan,.holo-globe.g-paused .g3d-dot.hl{animation-play-state:paused;}.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:140px 32px 90px;overflow:hidden;background:radial-gradient(ellipse 1000px 560px at 80% 10%,rgba(53,227,138,0.14),transparent 62%),radial-gradient(ellipse 700px 400px at 8% 95%,rgba(53,227,138,0.08),transparent 60%),var(--ink);border-bottom:1px solid var(--line);}
+.hero-video-wrap{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--ink);}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0.55;}
+.hero-video-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,15,16,0.35) 0%,rgba(13,15,16,0.55) 45%,var(--ink) 96%),radial-gradient(ellipse 1000px 560px at 80% 10%,rgba(53,227,138,0.14),transparent 62%);}
+.hero-grid{position:relative;z-index:1;}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none;}}.hero-grid{max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr 0.85fr;gap:60px;align-items:center;}.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan);display:flex;align-items:center;gap:10px;margin-top:22px;margin-bottom:26px;}.eyebrow::before{content:'';width:26px;height:1px;background:var(--cyan);}h1.hero-title{font-family:var(--display);font-size:clamp(42px,6vw,82px);line-height:0.97;letter-spacing:-0.01em;text-transform:uppercase;}h1.hero-title .accent{color:var(--cyan);}.hero-sub{margin-top:26px;font-size:17.5px;line-height:1.62;color:rgba(246,244,238,0.72);max-width:540px;}.hero-cta-row{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}.btn{font-family:var(--mono);font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--paper);border-radius:2px;transition:all .25s ease;display:inline-block;background:none;color:var(--paper);}.btn-solid{background:var(--paper);color:var(--ink);border-color:var(--paper);}.btn-solid:hover{background:var(--cyan);border-color:var(--cyan);}.btn-ghost{border-color:var(--line);color:var(--paper);}.btn-ghost:hover{border-color:var(--paper);}.hero-locs{margin-top:44px;display:flex;gap:24px;font-family:var(--mono);font-size:11.5px;color:rgba(246,244,238,0.5);flex-wrap:wrap;}.hero-locs span{display:inline-flex;align-items:center;gap:6px;}.loc-pin{width:12px;height:12px;flex-shrink:0;fill:var(--cyan);}.loc-pin-hole{fill:var(--ink);}.vinyl-stage{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;}.vinyl-tilt{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative;transition:transform .15s ease-out;}@media(max-width:900px){.hero-grid{grid-template-columns:1fr;}.vinyl-stage{width:100%;max-width:360px;margin:0 auto;}}.holo-globe{position:relative;width:90%;aspect-ratio:1/1;perspective:900px;}.holo-globe.hg-cta{width:220px;margin:0 auto 34px;perspective:560px;}.g3d-spin{position:absolute;inset:6%;transform-style:preserve-3d;animation:g3dSpin 26s linear infinite;}@keyframes g3dSpin{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}.g3d-dot{position:absolute;top:50%;left:50%;border-radius:50%;pointer-events:none;width:calc(var(--gr,60px) * 0.034);height:calc(var(--gr,60px) * 0.034);margin-left:calc(var(--gr,60px) * -0.017);margin-top:calc(var(--gr,60px) * -0.017);background:rgba(53,227,138,0.5);}.g3d-dot.hl{width:calc(var(--gr,60px) * 0.05);height:calc(var(--gr,60px) * 0.05);margin-left:calc(var(--gr,60px) * -0.025);margin-top:calc(var(--gr,60px) * -0.025);background:var(--amber);animation:dotBlink 1.8s ease-in-out infinite;}@keyframes dotBlink{0%,100%{opacity:1;}50%{opacity:0.2;}}.holo-globe-shade{position:absolute;inset:0;border-radius:50%;pointer-events:none;background:radial-gradient(circle at 32% 28%,rgba(53,227,138,0.2),transparent 46%),radial-gradient(circle at 50% 50%,transparent 58%,rgba(5,6,7,0.82) 100%);box-shadow:inset 0 0 44px rgba(0,0,0,0.6),0 0 70px 12px rgba(53,227,138,0.2);}.holo-globe-rings{position:absolute;inset:6%;transform-style:preserve-3d;animation:globeSpin 26s linear infinite;}.holo-globe-rings .ring{position:absolute;inset:0;border:1px solid rgba(53,227,138,0.4);border-radius:50%;}.holo-globe-rings .ring.r1{transform:rotateY(0deg);}.holo-globe-rings .ring.r2{transform:rotateY(45deg);}.holo-globe-rings .ring.r3{transform:rotateY(90deg);}.holo-globe-rings .ring.r4{transform:rotateY(135deg);}.holo-globe-rings .ring.flat{transform:rotateX(80deg);border-color:rgba(53,227,138,0.28);}.holo-globe-scan{position:absolute;inset:6%;border-radius:50%;border-top:1.5px solid rgba(53,227,138,0.7);animation:scanRotate 2.8s linear infinite;}section{padding:130px 0;position:relative;background:var(--ink);}.label-row{display:flex;align-items:center;gap:14px;margin-bottom:20px;}.label-num{font-family:var(--mono);font-size:11.5px;color:var(--cyan);letter-spacing:0.12em;}.label-line{flex:1;height:1px;background:var(--line);}h2.section-title{font-family:var(--display);font-size:clamp(30px,4vw,50px);text-transform:uppercase;line-height:1.05;letter-spacing:-0.01em;}.section-title .cyan{color:var(--cyan);}.section-desc{margin-top:22px;font-size:16.5px;line-height:1.7;color:rgba(246,244,238,0.68);max-width:640px;}.ecomap{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}.eco-block{position:relative;margin-top:52px;background:linear-gradient(160deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:16px;padding:52px 54px;box-shadow:0 30px 70px -24px rgba(0,0,0,0.55);}.eco-columns{display:flex;flex-direction:column;gap:0;position:relative;}.eco-columns .mindmap{padding:0;}.eco-columns .presence-map{padding:0;padding-top:48px;margin-top:48px;border-top:1px dashed var(--line);display:block;}@media(max-width:960px){.eco-block{padding:32px 26px;}.eco-columns .presence-map{padding-top:36px;margin-top:36px;}}.mindmap{position:relative;padding:16px 0;}.mindmap-svg{position:absolute;inset:0;width:100%;height:100%;z-index:0;}.mm-line{stroke:rgba(53,227,138,0.35);stroke-width:1;vector-effect:non-scaling-stroke;stroke-dasharray:140;stroke-dashoffset:140;transition:stroke-dashoffset 1.4s ease,stroke .3s ease,stroke-width .3s ease;}.wrap.in .mm-line{stroke-dashoffset:0;}.mindmap-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:40px 48px;align-items:center;max-width:920px;margin:0 auto;}.mm-node{background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:28px 30px;transition:border-color .3s ease,transform .3s ease,background .3s ease,box-shadow .3s ease;cursor:default;}.mm-node:hover{border-color:var(--cyan);transform:translateY(-5px) scale(1.015);background:rgba(53,227,138,0.06);box-shadow:0 18px 34px -18px rgba(0,0,0,0.55);}.mm-node.tl{grid-column:1;grid-row:1;}.mm-node.tr{grid-column:2;grid-row:1;}.mm-node.bl{grid-column:1;grid-row:3;}.mm-node.br{grid-column:2;grid-row:3;}.mm-node-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px;}.mm-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);}.mm-node-head h4{font-family:var(--display);font-size:18px;text-transform:uppercase;}.mm-node p{font-size:13.5px;line-height:1.65;color:rgba(246,244,238,0.62);}.mm-hub{grid-column:1/3;grid-row:2;justify-self:center;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 38% 30%,rgba(53,227,138,0.28),rgba(53,227,138,0.05) 60%,transparent 80%);border:1px solid var(--cyan);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;transition:transform .3s ease,box-shadow .3s ease;cursor:default;}.mm-hub:hover{transform:scale(1.06);box-shadow:0 0 0 1px rgba(53,227,138,0.3),0 0 40px rgba(53,227,138,0.22);}.mm-hub-dot{position:absolute;top:10px;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px rgba(53,227,138,0.18);animation:globePulse 3s ease-in-out infinite;}.mm-hub h3{font-family:var(--display);font-size:14px;text-transform:uppercase;line-height:1.2;color:var(--paper);}.mm-hub-sub{font-family:var(--mono);font-size:8.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--cyan);margin-top:8px;}.mindmap:has(.mm-node.tl:hover) .mm-line:nth-child(1),.mindmap:has(.mm-node.tr:hover) .mm-line:nth-child(2),.mindmap:has(.mm-node.bl:hover) .mm-line:nth-child(3),.mindmap:has(.mm-node.br:hover) .mm-line:nth-child(4){stroke:var(--amber);stroke-width:2;}@media(max-width:960px){.eco-columns{grid-template-columns:1fr;gap:48px;}}@media(max-width:800px){.mindmap-svg{display:none;}.mindmap-inner{grid-template-columns:1fr;gap:18px;max-width:420px;}.mm-node.tl,.mm-node.tr,.mm-node.bl,.mm-node.br{grid-column:1;}.mm-node.tl{grid-row:1;}.mm-node.tr{grid-row:2;}.mm-hub{grid-row:3;margin:14px auto;}.mm-node.bl{grid-row:4;}.mm-node.br{grid-row:5;}}.presence-map{max-width:none;}.pm-head{display:flex;align-items:center;justify-content:flex-start;gap:9px;margin-bottom:16px;}.pm-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--paper-dim);}.pm-wrap{position:relative;border-radius:12px;background:rgba(0,0,0,0.18);padding:18px;}.pm-svg{width:100%;height:auto;display:block;}.pm-dots circle{fill:rgba(53,227,138,0.16);}.pm-dots-hl circle{fill:rgba(53,227,138,0.4);}.pm-pins{position:absolute;inset:18px;}.pm-pin{position:absolute;display:flex;align-items:center;gap:6px;transform:translate(0,-50%);}.pm-pin-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 4px rgba(53,227,138,0.18);animation:globePulse 3s ease-in-out infinite;flex-shrink:0;}.pm-pin-label{font-family:var(--mono);font-size:10px;letter-spacing:0.05em;color:var(--paper);white-space:nowrap;background:none;padding:0;text-shadow:0 1px 4px rgba(0,0,0,0.95),0 0 10px rgba(0,0,0,0.7);}@media(max-width:600px){.pm-pin-label{font-size:8.5px;}}@media(max-width:960px){.pm-wrap{max-width:600px;margin:0 auto;}}.about-grid{margin-top:58px;display:grid;grid-template-columns:1fr 1fr;gap:50px;}.about-col{transition:transform .35s ease;}.about-col:hover{transform:translateY(-5px);}.about-col:hover h3{color:var(--cyan);}.about-col h3{font-family:var(--body);font-weight:700;font-size:18.5px;margin-bottom:14px;transition:color .3s ease;}.about-col p{font-size:15px;line-height:1.75;color:rgba(246,244,238,0.65);margin-bottom:10px;}@media(max-width:800px){.about-grid{grid-template-columns:1fr;}}.quote-strip{margin-top:66px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:42px 0;overflow:hidden;}.quote-strip p{font-family:var(--display);font-size:clamp(19px,2.6vw,30px);text-transform:uppercase;line-height:1.2;color:var(--cyan);clip-path:inset(0 100% 0 0);transition:clip-path 1.15s cubic-bezier(.16,1,.3,1) .15s;}.wrap.in .quote-strip p{clip-path:inset(0 0 0 0);}.specs{margin-top:60px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);}.spec-cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 22px;transition:background .3s ease;}.spec-cell:hover{background:rgba(53,227,138,0.06);}.spec-cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;}.spec-cell .v{font-size:14px;line-height:1.6;color:rgba(246,244,238,0.82);}@media(max-width:900px){.specs{grid-template-columns:repeat(2,1fr);}}@media(max-width:520px){.specs{grid-template-columns:1fr;}}.levels{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}.journey-timeline{margin-top:86px;}.jt-chart-wrap{position:relative;height:170px;}.jt-svg{width:100%;height:170px;display:block;overflow:visible;position:absolute;inset:0;}
+.jt-badge{position:absolute;display:flex;align-items:center;gap:6px;white-space:nowrap;opacity:0;transition:opacity .6s ease .8s;}
+.wrap.in .jt-badge{opacity:1;}
+.jt-badge svg{width:16px;height:16px;flex:none;}
+.jt-badge span{font-family:var(--mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;}
+.jt-badge-start{transform:translate(-6%,-160%);color:rgba(246,244,238,0.5);}
+.jt-badge-start span{color:rgba(246,244,238,0.5);}
+.jt-badge-finish{transform:translate(-22%,-165%);color:var(--cyan);}
+.jt-badge-finish svg{filter:drop-shadow(0 0 5px rgba(53,227,138,0.6));}
+.jt-badge-finish span{color:var(--cyan);font-weight:700;}
+@media(max-width:560px){.jt-badge span{display:none;}}.jt-path{fill:none;stroke:var(--cyan);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 1.8s ease;opacity:0.9;}.wrap.in .jt-path{stroke-dashoffset:0;}.jt-area{opacity:0;transition:opacity 1.2s ease .5s;}.wrap.in .jt-area{opacity:1;}.jt-dot{fill:var(--ink);stroke:var(--cyan);stroke-width:2;opacity:0;transform:scale(0);transform-box:fill-box;transform-origin:center;transition:opacity .4s ease,transform .4s cubic-bezier(.34,1.56,.64,1);}.wrap.in .jt-dot{opacity:1;transform:scale(1);}.wrap.in .jt-dot:nth-of-type(1){transition-delay:.3s;}.wrap.in .jt-dot:nth-of-type(2){transition-delay:.6s;}.wrap.in .jt-dot:nth-of-type(3){transition-delay:.9s;}.wrap.in .jt-dot:nth-of-type(4){transition-delay:1.2s;}.wrap.in .jt-dot:nth-of-type(5){transition-delay:1.5s;}.jt-dot-final{fill:var(--cyan);animation:globePulse 2.2s ease-in-out infinite;}.jt-tick{stroke:var(--cyan);stroke-width:2;opacity:0.55;}.jt-labels{display:grid;grid-template-columns:repeat(5,1fr);margin-top:8px;}.jt-labels span{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);text-align:center;}.journey-flow{margin-top:30px;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);align-items:stretch;}.level-col{background:var(--ink-2);display:flex;flex-direction:column;padding:26px 20px 24px;transition:background .3s ease,transform .3s ease;position:relative;}.level-col:hover{background:rgba(53,227,138,0.06);transform:translateY(-6px);}.level-col .level-name{transition:color .3s ease;}.level-col:hover .level-name{color:var(--cyan);}.level-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}.level-icon{width:36px;height:36px;flex:none;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--cyan);transition:border-color .3s ease,background .3s ease,transform .3s ease;}.level-icon svg{width:18px;height:18px;}.level-col:hover .level-icon{border-color:var(--cyan);background:rgba(53,227,138,0.1);transform:scale(1.08);}.level-idx{font-family:var(--mono);font-size:12px;color:rgba(246,244,238,0.35);}.level-name-wrap{display:flex;flex-direction:column;gap:4px;margin-bottom:16px;}.level-tag{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);}.level-name{font-family:var(--display);font-size:clamp(18px,2vw,24px);text-transform:uppercase;letter-spacing:-0.01em;}.level-intro{font-size:13px;line-height:1.65;color:rgba(246,244,238,0.6);margin-bottom:22px;}.level-subhead{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}.level-topics{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;}.level-topics li{font-size:12.5px;line-height:1.5;color:rgba(246,244,238,0.68);padding-left:18px;position:relative;}.level-topics li::before{content:'•';position:absolute;left:0;top:0;color:var(--cyan);font-size:15px;line-height:1.3;}.level-result{font-size:12.5px;line-height:1.6;color:rgba(246,244,238,0.75);padding-top:16px;border-top:1px dashed var(--line);margin-top:auto;}.level-result strong{display:block;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;font-weight:400;}.level-deliv{margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);}.level-deliv .deliv-title{margin-bottom:12px;}@media(max-width:1300px){.journey-flow{grid-template-columns:repeat(3,1fr);}.jt-labels{grid-template-columns:repeat(3,1fr);row-gap:4px;}}@media(max-width:900px){.journey-flow{grid-template-columns:1fr;}.level-col{padding:30px 26px;}.jt-labels{grid-template-columns:1fr;}}.deliv-title{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px;}.deliv-list{display:flex;flex-direction:column;gap:8px;}.deliv-list li{font-size:13px;line-height:1.5;color:rgba(246,244,238,0.72);padding-left:18px;position:relative;}.deliv-list li::before{content:'✓';position:absolute;left:0;top:0;color:var(--amber);}@media(max-width:800px){.journey-flow{grid-template-columns:1fr;}}.paths{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}.path-cards{margin-top:60px;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}.path-card{background:var(--ink);padding:42px 32px 38px;display:flex;flex-direction:column;transition:background .3s ease,transform .3s ease;}.path-card:hover{background:rgba(53,227,138,0.06);transform:translateY(-4px);}.path-tag{font-family:var(--mono);font-size:10.5px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;}.path-card h3{font-family:var(--display);font-size:24px;text-transform:uppercase;line-height:1.08;margin-bottom:8px;}.path-card .format{font-family:var(--mono);font-size:12px;color:rgba(246,244,238,0.5);margin-bottom:26px;}.path-table{width:100%;border-collapse:collapse;margin-bottom:24px;}.path-table th{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.06em;color:rgba(246,244,238,0.4);text-align:left;padding:8px 4px;border-bottom:1px solid var(--line);font-weight:400;}.path-table td{font-family:var(--mono);font-size:12.5px;padding:9px 4px;border-bottom:1px solid var(--line-soft);color:rgba(246,244,238,0.82);}.path-table td:last-child{color:var(--amber);text-align:right;}.path-card .recommended{margin-top:auto;padding-top:18px;border-top:1px dashed var(--line);}.path-card .recommended .rk{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;color:var(--cyan);letter-spacing:0.08em;margin-bottom:8px;}.path-card .recommended p{font-size:13px;line-height:1.6;color:rgba(246,244,238,0.6);}@media(max-width:800px){.path-cards{grid-template-columns:1fr;}}.path-card{position:relative;}.path-card.locked .path-card-content{filter:grayscale(0.7);opacity:0.4;pointer-events:none;user-select:none;}.path-card.locked:hover{background:var(--ink);transform:none;}.lock-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(13,15,16,0.45);z-index:5;}.lock-icon{font-size:30px;}.lock-msg{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--paper);background:var(--ink);border:1px solid var(--line);padding:8px 16px;border-radius:100px;}.enroll-head{margin-top:58px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}.enroll-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);}.enroll-title{font-family:var(--display);font-size:clamp(19px,2.2vw,24px);text-transform:uppercase;letter-spacing:-0.01em;}.steps-row{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}.step-c{background:var(--ink-2);padding:28px 24px;transition:background .3s ease,opacity .5s ease,transform .5s ease;position:relative;overflow:hidden;opacity:0;transform:translateY(22px) scale(0.97);}.steps-row.in .step-c{opacity:1;transform:translateY(0) scale(1);}.steps-row.in .step-c:hover{transform:translateY(-5px) scale(1);background:rgba(53,227,138,0.06);}.steps-row.in .step-c:nth-child(1){transition-delay:.05s;}.steps-row.in .step-c:nth-child(2){transition-delay:.35s;}.steps-row.in .step-c:nth-child(3){transition-delay:.65s;}.step-c:hover{background:rgba(53,227,138,0.06);}.step-c::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--cyan);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}.step-c:hover::before{transform:scaleX(1);}.step-badge{width:56px;height:56px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:20px;color:var(--ink);flex-shrink:0;margin-bottom:22px;box-shadow:0 0 0 5px rgba(53,227,138,0.14);transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease;}.steps-row.in .step-c:nth-child(1) .step-badge{transition:transform .5s cubic-bezier(.34,1.56,.64,1) .15s,box-shadow .35s ease;}.steps-row.in .step-c:nth-child(2) .step-badge{transition:transform .5s cubic-bezier(.34,1.56,.64,1) .45s,box-shadow .35s ease;}.steps-row.in .step-c:nth-child(3) .step-badge{transition:transform .5s cubic-bezier(.34,1.56,.64,1) .75s,box-shadow .35s ease;}.step-c .step-badge{transform:scale(0);}.steps-row.in .step-c .step-badge{transform:scale(1);}.step-c:hover .step-badge{transform:scale(1.1) !important;box-shadow:0 0 0 7px rgba(53,227,138,0.22);}.step-title{font-family:var(--body);font-weight:700;font-size:15px;color:var(--paper);margin-bottom:8px;}.step-body{font-size:13px;line-height:1.6;color:rgba(246,244,238,0.62);}@media(max-width:800px){.steps-row{grid-template-columns:1fr;}}@media(prefers-reduced-motion:reduce){.step-c,.step-badge{transition:none !important;opacity:1 !important;transform:none !important;}}.method-grid{margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}.method-block{background:var(--ink-2);padding:34px 30px;transition:background .35s ease,transform .35s ease;}.method-block:hover{background:var(--cyan);transform:translateY(-6px);}.method-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}.method-icon{width:34px;height:34px;flex:none;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--cyan);transition:border-color .35s ease,color .35s ease,background .35s ease;}.method-icon svg{width:17px;height:17px;}.method-block:hover .method-icon{border-color:var(--ink);color:var(--ink);background:rgba(13,15,16,0.12);}.method-num{font-family:var(--display);font-size:14px;color:rgba(246,244,238,0.32);transition:color .35s ease;}.method-block:hover .method-num{color:rgba(13,15,16,0.55);}.method-title{font-family:var(--display);font-size:18px;text-transform:uppercase;letter-spacing:-0.005em;margin-bottom:16px;transition:color .35s ease;}.method-block:hover .method-title{color:var(--ink);}.method-topics{display:flex;flex-direction:column;gap:9px;}.method-topics li{font-size:13.5px;line-height:1.55;color:rgba(246,244,238,0.68);padding-left:17px;position:relative;transition:color .35s ease;}.method-topics li::before{content:'▸';position:absolute;left:0;top:0;color:var(--cyan);transition:color .35s ease;}.method-block:hover .method-topics li{color:rgba(13,15,16,0.78);}.method-block:hover .method-topics li::before{color:var(--ink);}@media(max-width:900px){.method-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);}}@media(max-width:600px){.method-grid{grid-template-columns:1fr;grid-template-rows:none;}}.audience{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}.audience-grid{margin-top:54px;display:grid;grid-template-columns:repeat(3,1fr);gap:44px;}.audience-col{padding:24px;margin:-24px;border-radius:10px;border:1px solid transparent;transition:background .3s ease,border-color .3s ease,transform .3s ease;position:relative;}.audience-col:hover{background:rgba(53,227,138,0.06);border-color:var(--line);transform:translateY(-4px);}.audience-icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border-radius:50%;border:1px solid var(--line);color:var(--cyan);transition:transform .35s ease,border-color .35s ease,background .35s ease;}.audience-icon svg{width:18px;height:18px;}.audience-col:hover .audience-icon{transform:scale(1.14) rotate(-6deg);border-color:var(--cyan);background:rgba(53,227,138,0.1);}.audience-col h4{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cyan);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line);}.audience-col li{font-size:14px;line-height:1.6;color:rgba(246,244,238,0.72);margin-bottom:13px;padding-left:22px;position:relative;}.audience-col li::before{content:'✓';position:absolute;left:0;top:0;color:var(--amber);font-size:12.5px;}@media(max-width:900px){.audience-grid{grid-template-columns:1fr;gap:36px;}}.feedback{background:var(--cyan);color:var(--ink);}.feedback h2.section-title{color:var(--ink);}.feedback .label-num{color:rgba(13,15,16,0.65);}.feedback .label-line{background:rgba(13,15,16,0.2);}.feedback .section-desc{color:rgba(13,15,16,0.72);}.fb-groups{margin-top:48px;display:flex;flex-direction:column;gap:34px;}.fb-group-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(13,15,16,0.6);margin-bottom:14px;}.fb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(13,15,16,0.15);border:1px solid rgba(13,15,16,0.15);border-radius:12px;overflow:hidden;}.fb-card{background:rgba(13,15,16,0.06);padding:26px 24px;display:flex;flex-direction:column;transition:background .3s ease,transform .3s ease;}.fb-card:hover{background:rgba(13,15,16,0.11);}.wrap.in .fb-card:hover{transform:translateY(-4px);}.fb-num{font-family:var(--display);font-size:clamp(26px,3vw,36px);line-height:1;margin-bottom:10px;}.fb-lbl{font-size:12.5px;line-height:1.5;color:rgba(13,15,16,0.75);}@media(max-width:900px){.fb-grid{grid-template-columns:repeat(2,1fr);}}@media(max-width:520px){.fb-grid{grid-template-columns:1fr;}}.loc-strip{margin-top:20px;display:flex;gap:24px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:rgba(13,15,16,0.7);}.loc-strip span::before{content:'— ';font-weight:700;}.tips-grid{margin-top:54px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}.tip-c{background:var(--ink-2);padding:24px 26px;display:flex;gap:16px;align-items:flex-start;transition:background .3s ease,transform .3s ease;}.tip-c:hover{background:rgba(53,227,138,0.06);transform:translateX(6px);}.tip-n{font-family:var(--display);font-size:26px;color:rgba(53,227,138,0.25);flex-shrink:0;line-height:1;transition:color .3s ease,transform .3s cubic-bezier(.34,1.56,.64,1);}.tip-c:hover .tip-n{color:var(--cyan);transform:scale(1.15);}.tip-title{font-family:var(--body);font-weight:700;font-size:14px;margin-bottom:6px;transition:color .3s ease;}.tip-c:hover .tip-title{color:var(--cyan);}.tip-body{font-size:13px;line-height:1.6;color:rgba(246,244,238,0.6);}@media(max-width:800px){.tips-grid{grid-template-columns:1fr;}}.faq-diagram{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}.faq-item{background:var(--ink);transition:background .3s ease;}.faq-item:hover{background:rgba(53,227,138,0.06);}.faq-item.open{background:rgba(53,227,138,0.06);}.faq-q{padding:26px 26px;display:flex;align-items:center;cursor:pointer;gap:18px;background:none;border:none;width:100%;text-align:left;color:inherit;}.faq-q-num{font-family:var(--mono);font-size:12px;color:rgba(246,244,238,0.3);flex-shrink:0;}.faq-item.open .faq-q-num{color:var(--cyan);}.faq-q h4{font-family:var(--body);font-weight:600;font-size:15.5px;flex:1;line-height:1.4;}.faq-icon{position:relative;width:26px;height:26px;flex-shrink:0;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;}.faq-item.open .faq-icon{border-color:var(--cyan);}.faq-icon .fi-plus,.faq-icon .fi-minus{position:absolute;font-family:var(--mono);font-size:16px;font-weight:700;color:var(--cyan);line-height:1;transition:opacity .2s ease,transform .2s ease;}.faq-icon .fi-minus{opacity:0;transform:scale(0.6);}.faq-icon .fi-plus{opacity:1;transform:scale(1);}.faq-item.open .faq-icon .fi-plus{opacity:0;transform:scale(0.6);}.faq-item.open .faq-icon .fi-minus{opacity:1;transform:scale(1);}.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}.faq-a-inner{padding:0 26px 26px 62px;font-size:14px;line-height:1.7;color:rgba(246,244,238,0.62);}@media(max-width:800px){.faq-diagram{grid-template-columns:1fr;}}@keyframes globeSpin{to{transform:rotateY(360deg);}}@keyframes scanRotate{to{transform:rotate(360deg);}}@keyframes globePulse{0%,100%{opacity:0.85;}50%{opacity:1;}}.testimonials{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}.test-grid{margin-top:54px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);align-items:stretch;}.test-card{background:var(--ink);padding:36px 32px;display:flex;flex-direction:column;transition:background .3s ease,transform .3s ease;}.wrap.in .test-card:hover{transform:translateY(-6px);}.test-card:hover{background:rgba(53,227,138,0.06);}.test-quote{font-family:var(--display);font-size:46px;color:var(--cyan);line-height:1;margin-bottom:6px;opacity:0.85;}.test-text{font-size:13.5px;line-height:1.75;color:rgba(246,244,238,0.75);flex:1;}.test-author{margin-top:22px;padding-top:18px;border-top:1px dashed var(--line);display:flex;align-items:center;gap:13px;}.test-avatar{width:46px;height:46px;border-radius:50%;background:var(--ink-2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}.test-avatar img{width:100%;height:100%;object-fit:cover;display:block;}.test-avatar span{font-family:var(--mono);font-size:8px;letter-spacing:0.06em;text-transform:uppercase;color:rgba(246,244,238,0.35);}.test-author-info{display:flex;flex-direction:column;gap:3px;}.test-author-info strong{font-family:var(--body);font-size:14px;color:var(--paper);letter-spacing:0.02em;}.test-author-info span{font-family:var(--mono);font-size:11px;color:rgba(246,244,238,0.45);}@media(max-width:900px){.test-grid{grid-template-columns:1fr 1fr;}}@media(max-width:600px){.test-grid{grid-template-columns:1fr;}}.booking{padding:150px 0;text-align:center;background:radial-gradient(ellipse 800px 460px at 50% 100%,rgba(53,227,138,0.16),transparent 65%),var(--ink);border-top:1px solid var(--line);}.booking h2{font-family:var(--display);font-size:clamp(32px,5.2vw,60px);text-transform:uppercase;line-height:1.05;max-width:820px;margin:52px auto 0;}.booking h2 .cyan{color:var(--cyan);}.booking p{margin:22px auto 40px;font-size:16.5px;color:rgba(246,244,238,0.62);max-width:480px;}.booking-open-btn{font-family:var(--mono);font-size:13.5px;letter-spacing:0.06em;text-transform:uppercase;padding:20px 40px;background:var(--cyan);color:var(--ink);border:none;border-radius:2px;transition:transform .2s ease,box-shadow .2s ease;font-weight:600;}.booking-open-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -10px rgba(53,227,138,0.5);}.booking-note{margin-top:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(246,244,238,0.4);}.gallery{border-bottom:1px solid var(--line);}.gallery-grid{margin-top:54px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}.gallery-tile{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line);transition:border-color .3s ease,transform .3s ease;}.gallery-tile:hover{border-color:var(--cyan);}.wrap.in .gallery-tile:hover{transform:translateY(-5px);}.gallery-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}.gallery-tile:hover img{transform:scale(1.06);}.gallery-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(53,227,138,0.14),rgba(53,227,138,0.06) 50%,rgba(13,15,16,0.4));transition:transform .5s ease;}.gallery-tile:hover .gallery-ph{transform:scale(1.06);}.gallery-ph span{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(246,244,238,0.35);}.gt-b,.gt-e{aspect-ratio:1/1;}@media(max-width:800px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}@media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}}.giftcard{padding-bottom:160px;}.gift-voucher{position:relative;max-width:620px;margin:56px auto 0;background:linear-gradient(160deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 70px -24px rgba(0,0,0,0.55);transition:border-color .3s ease,box-shadow .3s ease;}.gift-voucher:hover{border-color:var(--cyan);box-shadow:0 30px 70px -24px rgba(0,0,0,0.55),0 0 0 1px rgba(53,227,138,0.2);}.gift-voucher-top{display:flex;justify-content:space-between;align-items:center;padding:28px 34px;}.gift-brand{font-family:var(--display);font-size:16px;letter-spacing:0.02em;}.gift-brand .dot{color:var(--cyan);}.gift-type{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan);border:1px solid var(--cyan);padding:6px 12px;border-radius:100px;}.gift-divider{position:relative;border-top:1.5px dashed rgba(246,244,238,0.22);}.gift-divider::before,.gift-divider::after{content:'';position:absolute;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--ink);}.gift-divider::before{left:-11px;}.gift-divider::after{right:-11px;}.gift-voucher-body{padding:30px 34px;display:flex;flex-direction:column;gap:18px;}.gift-field{display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap;}.gift-k{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(246,244,238,0.45);white-space:nowrap;}.gift-v{font-family:var(--body);font-size:14.5px;color:var(--paper);text-align:right;}.gift-v.mono{font-family:var(--mono);letter-spacing:0.06em;color:var(--amber);}.gift-blank:empty{flex:1;min-width:140px;border-bottom:1px dotted rgba(246,244,238,0.3);height:1px;align-self:center;}.gift-voucher-bottom{padding:26px 34px 34px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;}.gift-note{font-size:12.5px;line-height:1.65;color:rgba(246,244,238,0.5);}@media(max-width:560px){.gift-field{flex-direction:column;align-items:flex-start;gap:6px;}.gift-v{text-align:left;}.gift-blank:empty{width:100%;}}.giftcard{position:relative;overflow:hidden;}.gift-glow{position:absolute;left:50%;top:40px;width:640px;height:640px;transform:translateX(-50%);background:radial-gradient(circle,rgba(53,227,138,0.16),transparent 62%);pointer-events:none;z-index:0;}.gift-voucher{z-index:1;}.gift-voucher::before{content:'';position:absolute;inset:0;border-radius:16px;background-image:repeating-linear-gradient(135deg,rgba(53,227,138,0.035) 0 2px,transparent 2px 14px);pointer-events:none;}.gift-brand{display:flex;align-items:center;gap:9px;}.gift-icon{width:19px;height:19px;color:var(--cyan);flex:none;}.gift-placeholder{color:rgba(246,244,238,0.4);font-style:italic;}.gift-perks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin:0 34px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}.gift-perk{background:var(--ink-2);padding:16px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;}.gift-perk svg{width:20px;height:20px;color:var(--cyan);}.gift-perk span{font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;color:rgba(246,244,238,0.72);white-space:nowrap;}.gift-cta{display:inline-flex;align-items:center;gap:9px;}.gift-cta svg{width:15px;height:15px;transition:transform .25s ease;}.gift-cta:hover svg{transform:translateX(3px);}@media(max-width:560px){.gift-perks{grid-template-columns:1fr;margin:0 24px;}.gift-perk{flex-direction:row;justify-content:flex-start;}}footer{border-top:1px solid var(--line);padding:56px 0;background:var(--ink);}footer .wrap{display:block;}.footer-block{background:linear-gradient(160deg,var(--ink-2),var(--ink));border:1px solid var(--line);border-radius:16px;padding:40px 44px 28px;}.footer-brand{display:flex;align-items:center;gap:14px;margin-bottom:30px;padding-bottom:24px;border-bottom:1px solid var(--line);}.footer-brand img{height:32px;width:auto;display:block;}.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 40px;}.footer-col .fk{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:var(--cyan);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line);}.footer-col .fv{font-size:13.5px;line-height:1.8;color:rgba(246,244,238,0.68);}.footer-col .fv a:hover{color:var(--cyan);}.footer-lab-list{list-style:none;margin:0;padding:0;}.footer-lab-list li{font-size:13px;line-height:1.6;color:rgba(246,244,238,0.68);margin-bottom:8px;padding-left:14px;position:relative;}.footer-lab-list li::before{content:'—';position:absolute;left:0;top:0;color:var(--cyan);}.footer-bottom{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;color:rgba(246,244,238,0.38);flex-wrap:wrap;gap:10px;}@media(max-width:800px){.footer-block{padding:32px 26px 24px;}.footer-grid{grid-template-columns:repeat(2,1fr);gap:26px;}}@media(max-width:520px){.footer-grid{grid-template-columns:1fr;gap:24px;}}.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(9,10,11,0.86);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s ease;}.modal-overlay.open{opacity:1;pointer-events:auto;}.modal-box{background:var(--ink-2);border:1px solid var(--line);border-radius:10px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;padding:44px;position:relative;transform:translateY(16px) scale(0.98);transition:transform .3s ease;}.modal-overlay.open .modal-box{transform:translateY(0) scale(1);}.modal-close{position:absolute;top:20px;right:20px;background:none;border:none;color:var(--paper);font-size:22px;line-height:1;opacity:0.6;transition:opacity .2s;}.modal-close:hover{opacity:1;}.modal-eyebrow{font-family:var(--mono);font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;}.modal-box h3{font-family:var(--display);font-size:26px;text-transform:uppercase;line-height:1.1;margin-bottom:10px;}.modal-sub{font-size:14px;color:rgba(246,244,238,0.6);line-height:1.6;margin-bottom:26px;}.f-steps{display:flex;align-items:center;margin-bottom:30px;}.f-step{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(246,244,238,0.35);}.f-step-n{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:10.5px;color:rgba(246,244,238,0.4);flex-shrink:0;transition:all .25s;}.f-step.active .f-step-n{border-color:var(--cyan);color:var(--cyan);}.f-step.active{color:var(--paper);}.f-step.done .f-step-n{background:var(--cyan);border-color:var(--cyan);color:var(--ink);}.f-line{flex:1;height:1px;background:var(--line);margin:0 8px;}.f-sec{display:none;}.f-sec.on{display:block;}.f-sec-title{font-family:var(--body);font-weight:700;font-size:15px;margin-bottom:18px;color:var(--paper);}.fg2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}.fld{margin-bottom:16px;display:flex;flex-direction:column;gap:8px;}.fld label{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(246,244,238,0.55);}.fld label .req{color:var(--cyan);}.fld input,.fld textarea,.fld select{background:var(--ink);border:1px solid var(--line);border-radius:4px;padding:13px 14px;color:var(--paper);font-family:var(--body);font-size:14.5px;transition:border-color .2s;}.fld select{color:var(--paper);}.fld select option{background:var(--ink-2);}.fld input:focus,.fld textarea:focus,.fld select:focus{outline:none;border-color:var(--cyan);}.fld textarea{resize:vertical;min-height:80px;font-family:var(--body);}.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}.opts.c3{grid-template-columns:1fr 1fr 1fr;}.opt{display:flex;align-items:center;gap:9px;padding:11px 13px;background:var(--ink);border:1px solid var(--line);border-radius:5px;cursor:pointer;transition:all .2s;font-size:13px;color:rgba(246,244,238,0.68);}.opt:hover{border-color:rgba(246,244,238,0.3);}.opt.sel{border-color:var(--cyan);background:rgba(53,227,138,0.08);color:var(--paper);}.opt-dot{width:14px;height:14px;border-radius:50%;border:2px solid rgba(246,244,238,0.3);flex-shrink:0;transition:all .2s;}.opt.sel .opt-dot{border-color:var(--cyan);background:var(--cyan);}.opt-sq{width:14px;height:14px;border-radius:3px;border:2px solid rgba(246,244,238,0.3);flex-shrink:0;transition:all .2s;}.opt.sel .opt-sq{border-color:var(--amber);background:var(--amber);}.scale-wrap{margin-bottom:14px;}.scale-labels{display:flex;justify-content:space-between;font-size:10px;color:rgba(246,244,238,0.4);margin-bottom:6px;}.scale-btns{display:flex;gap:6px;}.sc-btn{flex:1;height:34px;border:1px solid var(--line);border-radius:4px;background:var(--ink);color:rgba(246,244,238,0.5);font-family:var(--mono);font-size:12px;font-weight:700;cursor:pointer;transition:all .2s;}.sc-btn:hover{border-color:rgba(246,244,238,0.4);}.sc-btn.on{border-color:var(--cyan);background:rgba(53,227,138,0.1);color:var(--cyan);}.f-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;}.f-nav-info{font-family:var(--mono);font-size:11px;color:rgba(246,244,238,0.35);letter-spacing:0.06em;}.btn-b{background:none;border:1px solid var(--line);color:rgba(246,244,238,0.6);font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:12px 20px;border-radius:4px;cursor:pointer;transition:all .2s;}.btn-b:hover{border-color:var(--paper);color:var(--paper);}.btn-n{background:var(--paper);border:none;color:var(--ink);font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:13px 24px;border-radius:4px;cursor:pointer;transition:all .2s;}.btn-n:hover{background:var(--cyan);}.btn-s{background:var(--cyan);border:none;color:var(--ink);font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:13px 24px;border-radius:4px;cursor:pointer;transition:all .2s;font-weight:700;}.btn-s:hover{background:var(--amber);}.form-note-box{background:rgba(53,227,138,0.05);border:1px solid rgba(53,227,138,0.18);border-radius:6px;padding:14px;margin-top:4px;font-size:12px;line-height:1.7;color:rgba(246,244,238,0.6);}.form-note-box strong{color:var(--paper);}.f-success{display:none;text-align:center;padding:16px 0;}.f-success.on{display:block;}.suc-icon{font-size:44px;margin-bottom:14px;color:var(--cyan);}.suc-title{font-family:var(--display);font-size:26px;text-transform:uppercase;color:var(--paper);margin-bottom:9px;}.suc-body{font-size:14px;color:rgba(246,244,238,0.65);line-height:1.7;margin-bottom:22px;}.suc-contacts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}.suc-c{background:var(--ink);border:1px solid var(--line);border-radius:5px;padding:11px 18px;font-size:12px;color:rgba(246,244,238,0.7);}.suc-c strong{display:block;color:var(--cyan);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}@media(max-width:520px){.fg2{grid-template-columns:1fr;}.modal-box{padding:30px 24px;}.opts.c3{grid-template-columns:1fr 1fr;}.f-step span{display:none;}}.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}.reveal.in{opacity:1;transform:translateY(0);}.fb-card,.method-block,.mm-node,.test-card,.gallery-tile,.level-col,.path-card,.tip-c,.deliv,.spec-cell,.faq-item,.audience-col,.about-col{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease;}.wrap.in .fb-card,.wrap.in .method-block,.wrap.in .mm-node,.wrap.in .test-card,.wrap.in .gallery-tile,.wrap.in .level-col,.wrap.in .path-card,.wrap.in .tip-c,.wrap.in .deliv,.wrap.in .spec-cell,.wrap.in .faq-item,.wrap.in .audience-col,.wrap.in .about-col{opacity:1;transform:translateY(0);}.wrap.in .fb-card:nth-child(1),.wrap.in .method-block:nth-child(1),.wrap.in .mm-node:nth-child(1),.wrap.in .test-card:nth-child(1),.wrap.in .gallery-tile:nth-child(1),.wrap.in .level-col:nth-child(1),.wrap.in .path-card:nth-child(1),.wrap.in .tip-c:nth-child(1),.wrap.in .deliv:nth-child(1),.wrap.in .spec-cell:nth-child(1),.wrap.in .faq-item:nth-child(1),.wrap.in .audience-col:nth-child(1),.wrap.in .about-col:nth-child(1){transition-delay:.02s;}.wrap.in .fb-card:nth-child(2),.wrap.in .method-block:nth-child(2),.wrap.in .mm-node:nth-child(2),.wrap.in .test-card:nth-child(2),.wrap.in .gallery-tile:nth-child(2),.wrap.in .level-col:nth-child(2),.wrap.in .path-card:nth-child(2),.wrap.in .tip-c:nth-child(2),.wrap.in .deliv:nth-child(2),.wrap.in .spec-cell:nth-child(2),.wrap.in .faq-item:nth-child(2),.wrap.in .audience-col:nth-child(2),.wrap.in .about-col:nth-child(2){transition-delay:.08s;}.wrap.in .fb-card:nth-child(3),.wrap.in .method-block:nth-child(3),.wrap.in .mm-node:nth-child(3),.wrap.in .test-card:nth-child(3),.wrap.in .gallery-tile:nth-child(3),.wrap.in .level-col:nth-child(3),.wrap.in .path-card:nth-child(3),.wrap.in .tip-c:nth-child(3),.wrap.in .deliv:nth-child(3),.wrap.in .spec-cell:nth-child(3),.wrap.in .faq-item:nth-child(3),.wrap.in .audience-col:nth-child(3),.wrap.in .about-col:nth-child(3){transition-delay:.14s;}.wrap.in .fb-card:nth-child(4),.wrap.in .method-block:nth-child(4),.wrap.in .mm-node:nth-child(4),.wrap.in .gallery-tile:nth-child(4),.wrap.in .level-col:nth-child(4),.wrap.in .deliv:nth-child(4),.wrap.in .spec-cell:nth-child(4),.wrap.in .faq-item:nth-child(4){transition-delay:.20s;}.wrap.in .method-block:nth-child(5),.wrap.in .gallery-tile:nth-child(5),.wrap.in .spec-cell:nth-child(5),.wrap.in .faq-item:nth-child(5){transition-delay:.26s;}.wrap.in .method-block:nth-child(6),.wrap.in .gallery-tile:nth-child(6),.wrap.in .spec-cell:nth-child(6),.wrap.in .faq-item:nth-child(6){transition-delay:.32s;}.wrap.in .spec-cell:nth-child(n+7){transition-delay:.38s;}.hero{background-attachment:fixed;}@media(max-width:900px){.hero{background-attachment:scroll;}}@media(prefers-reduced-motion:reduce){.holo-globe-rings,.holo-globe-scan,.g3d-spin,.g3d-dot.hl,.mm-hub-dot{animation:none;}.reveal{transition:none;opacity:1;transform:none;}.vinyl-tilt,.level-row,.level-col,.path-card,.fb-card,.method-block{transition:none !important;}.fb-card,.method-block,.mm-node,.test-card,.gallery-tile,.level-col,.tip-c,.deliv,.spec-cell,.faq-item,.audience-col,.step-c,.mm-line,.jt-path{transition:none !important;opacity:1 !important;transform:none !important;stroke-dashoffset:0 !important;}}
+/* ---------- LEVELS (flat track, DJ LAB 5 stages) ---------- */
+.level-track{margin-top:64px;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);}
+.level-row{background:var(--ink-2);display:grid;grid-template-columns:70px 1fr 1.7fr auto;gap:28px;align-items:center;padding:30px 30px;transition:background .3s ease, transform .3s ease, padding-left .3s ease;position:relative;}
+.level-row:hover{background:rgba(53,227,138,0.06);transform:translateX(6px);padding-left:34px;}
+.level-row .level-name{transition:color .3s ease;}
+.level-row:hover .level-name{color:var(--cyan);}
+.level-desc{font-size:14px;line-height:1.6;color:rgba(246,244,238,0.62);max-width:460px;}
+.level-focus{font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:0.02em;}
+@media(max-width:800px){.level-row{grid-template-columns:1fr;gap:10px;padding:26px 22px;}.level-row .level-idx{display:none;}.level-focus{text-align:left;}}
+
+/* ---------- EQUIPMENT (vector icon cards) ---------- */
+.equip-grid{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.equip-card{background:var(--ink-2);padding:36px 24px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;transition:background .3s ease,transform .3s ease;}
+.equip-card:hover{background:rgba(53,227,138,0.06);transform:translateY(-4px);}
+.equip-icon{width:64px;height:64px;flex:none;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--cyan);background:radial-gradient(circle at 34% 28%,rgba(53,227,138,0.16),transparent 70%);transition:border-color .3s ease,transform .3s ease,background .3s ease;}
+.equip-card:hover .equip-icon{border-color:var(--cyan);background:radial-gradient(circle at 34% 28%,rgba(53,227,138,0.26),transparent 70%);transform:scale(1.08);}
+.equip-icon svg{width:30px;height:30px;}
+.equip-name{font-family:var(--mono);font-size:13px;letter-spacing:0.02em;color:rgba(246,244,238,0.85);line-height:1.4;}
+@media(max-width:800px){.equip-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.equip-grid{grid-template-columns:1fr;}}
+
+/* ---------- THE LAB (stat block) ---------- */
+.lab-stats{margin-top:46px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.lab-stat{padding:36px 24px;text-align:center;border-right:1px solid var(--line);transition:background .3s ease,transform .3s ease;}
+.lab-stat:last-child{border-right:none;}
+.lab-stat:hover{background:rgba(53,227,138,0.06);transform:translateY(-4px);}
+.lab-stat .num{font-family:var(--display);font-size:clamp(34px,4vw,50px);color:var(--cyan);line-height:1;}
+.lab-stat .lbl{margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(246,244,238,0.55);}
+@media(max-width:800px){.lab-stats{grid-template-columns:repeat(2,1fr);}.lab-stat{border-bottom:1px solid var(--line);}}
+
+/* ---------- SIMPLE BOOKING MODAL FORM ---------- */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.form-group{margin-bottom:16px;display:flex;flex-direction:column;gap:8px;}
+.form-group label{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(246,244,238,0.55);}
+.form-group input, .form-group textarea{background:var(--ink);border:1px solid var(--line);border-radius:4px;padding:13px 14px;color:var(--paper);font-family:var(--body);font-size:14.5px;transition:border-color .2s;}
+.form-group input:focus, .form-group textarea:focus{outline:none;border-color:var(--cyan);}
+.form-group textarea{resize:vertical;min-height:90px;font-family:var(--body);}
+.form-submit{margin-top:8px;width:100%;padding:16px;background:var(--cyan);color:var(--ink);border:none;border-radius:4px;font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;transition:transform .2s;}
+.form-submit:hover{transform:translateY(-1px);}
+.form-note{margin-top:14px;font-size:11.5px;color:rgba(246,244,238,0.4);text-align:center;line-height:1.5;}
+@media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+
+/* ---------- HOLOGRAPHIC TURNTABLE (hero visual, true 3D box) ---------- */
+.holo-turntable{position:relative;width:100%;aspect-ratio:1/0.8;perspective:1500px;}
+.holo-turntable.hg-cta{max-width:230px;margin:0 auto 34px;}
+.tt-scene{position:absolute;top:50%;left:50%;width:var(--tw,240px);height:calc(var(--tw,240px) * 0.74);margin-left:calc(var(--tw,240px) * -0.5);margin-top:calc(var(--tw,240px) * -0.37);transform-style:preserve-3d;transform:rotateZ(-32deg) rotateX(50deg);}
+.tt-top,.tt-bottom,.tt-front,.tt-back,.tt-left,.tt-right{backface-visibility:hidden;-webkit-backface-visibility:hidden;}
+.tt-top{position:absolute;inset:0;border-radius:14px;transform:rotateX(90deg) translateZ(calc(var(--tw,240px) * 0.075));background:linear-gradient(135deg,rgba(53,227,138,0.10),rgba(7,8,9,0.94) 60%);border:1px solid rgba(53,227,138,0.55);box-shadow:0 0 46px rgba(53,227,138,0.16) inset;}
+.tt-bottom{position:absolute;inset:0;border-radius:14px;transform:rotateX(-90deg) translateZ(calc(var(--tw,240px) * 0.075));background:linear-gradient(135deg,rgba(53,227,138,0.04),rgba(3,4,5,0.98) 60%);border:1px solid rgba(53,227,138,0.22);}
+.tt-front{position:absolute;left:0;width:100%;top:calc(50% - (var(--tw,240px) * 0.075));height:calc(var(--tw,240px) * 0.15);border-radius:0;transform:translateZ(calc(var(--tw,240px) * 0.37));background:linear-gradient(180deg,rgba(53,227,138,0.12),rgba(4,5,6,0.96));border:1px solid rgba(53,227,138,0.4);}
+.tt-back{position:absolute;left:0;width:100%;top:calc(50% - (var(--tw,240px) * 0.075));height:calc(var(--tw,240px) * 0.15);border-radius:0;transform:rotateY(180deg) translateZ(calc(var(--tw,240px) * 0.37));background:linear-gradient(0deg,rgba(53,227,138,0.06),rgba(2,3,4,0.98));border:1px solid rgba(53,227,138,0.2);}
+.tt-right{position:absolute;top:calc(50% - (var(--tw,240px) * 0.075));height:calc(var(--tw,240px) * 0.15);left:calc(50% - (var(--tw,240px) * 0.37));width:calc(var(--tw,240px) * 0.74);border-radius:0;transform:rotateY(90deg) translateZ(calc(var(--tw,240px) * 0.5));background:linear-gradient(90deg,rgba(53,227,138,0.12),rgba(4,5,6,0.96));border:1px solid rgba(53,227,138,0.4);}
+.tt-left{position:absolute;top:calc(50% - (var(--tw,240px) * 0.075));height:calc(var(--tw,240px) * 0.15);left:calc(50% - (var(--tw,240px) * 0.37));width:calc(var(--tw,240px) * 0.74);border-radius:0;transform:rotateY(-90deg) translateZ(calc(var(--tw,240px) * 0.5));background:linear-gradient(270deg,rgba(53,227,138,0.09),rgba(4,5,6,0.97));border:1px solid rgba(53,227,138,0.3);}
+
+.tt-foot{position:absolute;width:calc(var(--tw,240px) * 0.02);height:calc(var(--tw,240px) * 0.02);border-radius:50%;background:rgba(53,227,138,0.4);box-shadow:0 0 6px rgba(53,227,138,0.4);}
+.tt-foot.fa{left:4%;top:5%;} .tt-foot.fb{right:4%;top:5%;} .tt-foot.fc{left:4%;bottom:5%;} .tt-foot.fd{right:4%;bottom:5%;}
+.tt-platter-wrap{position:absolute;left:6%;top:11%;width:57%;height:77%;border-radius:50%;box-shadow:0 0 24px rgba(53,227,138,0.14) inset,0 0 30px rgba(53,227,138,0.1);}
+.tt-platter{position:absolute;inset:0;border-radius:50%;animation:htSpin 1.6s linear infinite;}
+.tt-platter-svg{width:100%;height:100%;overflow:visible;display:block;}
+.ht-groove-o{fill:none;stroke:rgba(53,227,138,0.55);stroke-width:1.1;}
+.ht-groove{fill:none;stroke:rgba(53,227,138,0.3);stroke-width:0.7;}
+.ht-label-ring{fill:rgba(53,227,138,0.16);stroke:var(--cyan);stroke-width:1.3;}
+.ht-spindle{fill:var(--paper);}
+.tt-scan{position:absolute;inset:0;border-radius:50%;border-top:1.5px solid rgba(53,227,138,0.7);animation:htScanRotate 2.6s linear infinite;}
+.tt-tonearm{position:absolute;right:3%;top:6%;width:36%;height:36%;transform-origin:top right;animation:htArmDrop 2.2s cubic-bezier(.2,.9,.3,1) forwards;}
+.tt-tonearm svg{width:100%;height:100%;overflow:visible;display:block;}
+.ht-arm-line{fill:none;stroke:var(--paper);stroke-width:2.3;stroke-linecap:round;}
+.ht-arm-pivot{fill:var(--ink);stroke:var(--paper);stroke-width:1.8;}
+.ht-arm-pivot-dot{fill:var(--paper);}
+.ht-arm-cw-stem{stroke:var(--paper);stroke-width:1.6;stroke-linecap:round;}
+.ht-arm-cw{fill:var(--ink);stroke:var(--paper);stroke-width:1.6;}
+.ht-arm-headshell{fill:rgba(9,10,11,0.8);stroke:var(--paper);stroke-width:1.4;}
+.ht-arm-stylus{fill:var(--cyan);}
+.tt-start{position:absolute;right:11%;top:47%;width:calc(var(--tw,240px) * 0.045);height:calc(var(--tw,240px) * 0.045);border-radius:50%;border:1.5px solid rgba(53,227,138,0.6);background:rgba(53,227,138,0.08);box-shadow:0 0 8px rgba(53,227,138,0.25);}
+.tt-light{position:absolute;width:calc(var(--tw,240px) * 0.016);height:calc(var(--tw,240px) * 0.016);border-radius:50%;background:var(--cyan);box-shadow:0 0 6px 2px rgba(53,227,138,0.5);animation:globePulse 3s ease-in-out infinite;}
+.tt-light.la{right:20%;top:44%;} .tt-light.lb{right:20%;top:50%;}
+.tt-fader{position:absolute;right:9%;top:58%;width:5%;height:34%;border-radius:6px;border:1px solid rgba(53,227,138,0.4);background:rgba(53,227,138,0.05);}
+.tt-fader::before{content:'';position:absolute;left:50%;top:40%;width:150%;height:10%;transform:translateX(-50%);background:var(--paper);border-radius:2px;box-shadow:0 0 6px rgba(53,227,138,0.4);}
+@keyframes htSpin{to{transform:rotate(360deg);}}
+@keyframes htScanRotate{to{transform:rotate(360deg);}}
+@keyframes htArmDrop{0%{transform:rotate(-30deg);}100%{transform:rotate(-4deg);}}
+.tt-spin-stage{position:absolute;inset:0;transform-style:preserve-3d;animation:ttSpinStage 22s linear infinite;}
+@keyframes ttSpinStage{to{transform:rotateY(360deg);}}
+@media(prefers-reduced-motion:reduce){.tt-platter,.tt-scan{animation:none;}.tt-tonearm{animation:none;transform:rotate(-4deg);}.tt-light{animation:none;}.tt-spin-stage{animation:none;}}
+
+/* ---------- ENROLLMENT TIMELINE (Prices section) ---------- */
+.dj-timeline{margin-top:40px;}
+.dj-tl-track{display:flex;flex-direction:column;gap:20px;}
+.dj-tl-row{display:grid;grid-template-columns:170px 1fr;align-items:center;gap:20px;}
+.dj-tl-label{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:0.03em;color:rgba(246,244,238,0.72);}
+.dj-tl-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex:none;box-shadow:0 0 0 4px rgba(53,227,138,0.16);}
+.dj-tl-bar-wrap{position:relative;height:38px;background:rgba(246,244,238,0.035);border-radius:8px;border:1px solid var(--line);overflow:hidden;}
+.dj-tl-bar{position:absolute;top:0;bottom:0;border-radius:7px;background:linear-gradient(90deg,rgba(53,227,138,0.45),rgba(53,227,138,0.18));border:1px solid var(--cyan);display:flex;align-items:center;padding:0 14px;box-shadow:0 0 20px rgba(53,227,138,0.18) inset,0 0 16px rgba(53,227,138,0.12);transition:transform .25s ease;}
+.dj-tl-bar:hover{transform:translateY(-2px);}
+.dj-tl-bar span{font-family:var(--mono);font-size:11px;color:var(--paper);white-space:nowrap;letter-spacing:0.01em;}
+.dj-tl-axis{position:relative;height:40px;margin:14px 0 0 190px;border-top:1px solid var(--line);}
+.dj-tl-tick{position:absolute;top:9px;transform:translateX(-50%);font-family:var(--mono);font-size:10px;color:rgba(246,244,238,0.4);white-space:nowrap;}
+.dj-tl-tick.tick-b{padding-top:15px;}
+.dj-tl-tick::before{content:'';position:absolute;top:-10px;left:50%;width:1px;height:8px;background:var(--line);transform:translateX(-50%);}
+.dj-tl-tick:first-child{transform:translateX(0);}
+.dj-tl-tick:first-child::before{left:0;}
+.dj-tl-tick:last-child{transform:translateX(-100%);}
+.dj-tl-tick:last-child::before{left:100%;}
+@media(max-width:700px){.dj-tl-row{grid-template-columns:1fr;gap:8px;}.dj-tl-axis{display:none;}}.lang-toggle{display:flex;align-items:center;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none;margin-left:4px;}.lang-btn{font-family:var(--mono);font-size:10px;letter-spacing:0.05em;padding:8px 12px;background:none;border:none;color:rgba(246,244,238,0.5);cursor:pointer;transition:all .2s;}.lang-btn.active{background:var(--cyan);color:var(--ink);font-weight:700;}.lang-btn:not(.active):hover{color:var(--paper);}@media(max-width:480px){.lang-btn{padding:7px 9px;font-size:9px;}}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav id="mainNav">
+  <a href="#top" class="nav-mark"><img id="brandLogo" src="data:image/png;base64,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" alt="Pomadex Productions"><span class="nav-mark-divider"></span><span class="nav-mark-subject" data-pt="<strong>DJ LAB</strong>Aulas"><strong>DJ LAB</strong>Classes</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#about" data-sec="about" data-pt="Sobre">About</a>
+    <a href="#levels" data-sec="levels" data-pt="Níveis">Levels</a>
+    <a href="#curriculum" data-sec="curriculum" data-pt="Currículo">Curriculum</a>
+    <a href="#prices" data-sec="prices" data-pt="Preços">Prices</a>
+    <a href="#contact" data-sec="contact" data-pt="Contato">Contact</a>
+  </div>
+  <div class="nav-cta-group">
+    <button class="nav-cta nav-cta-ghost" onclick="openModal('lessons')" data-pt="Agendar Aulas">Book Lessons</button>
+    <button class="nav-cta nav-cta-ghost" onclick="openModal('gift')" data-pt="Vale-Presente">Gift Card</button>
+    <button class="nav-cta" onclick="openModal('trial')" data-pt="Aula Experimental">Book Trial Lesson</button>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <!-- BACKGROUND VIDEO: replace the <source src="..."> below with your video file
+       (or swap the whole <video> block for an <img src="your.gif"> if using a GIF).
+       Keep it short, muted, and looping — a few seconds is enough. -->
+  <div class="hero-video-wrap" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="REPLACE-WITH-YOUR-VIDEO.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <h1 class="hero-title" data-pt="AULAS DE DJ<br><span class='accent'>pela LAB DJ</span>">DJ CLASSES<br><span class="accent">by LAB DJ</span></h1>
+      <div class="eyebrow" data-pt="LAB DJ pela Pomadex Productions">LAB DJ by Pomadex Productions</div>
+      <p class="hero-sub" data-pt="Mais do que tocar música — é transformar energia em movimento e construir conexão genuína através do som. Do vinil aos controladores digitais, formamos DJs completos, do primeiro cue ao palco principal.">More than playing music — it's turning energy into movement and building genuine connection through sound. From vinyl to digital controllers, we train complete DJs, from first cue to main stage.</p>
+      <div class="hero-cta-row">
+        <a href="javascript:void(0)" class="btn btn-solid" onclick="openModal('trial')" data-pt="Agendar aula experimental">Book a trial lesson</a>
+        <a href="#prices" class="btn btn-ghost" data-pt="Ver preços">See prices</a>
+      </div>
+      <div class="hero-locs">
+        <span><svg class="loc-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c-4.28 0-7.5 3.36-7.5 7.36 0 5.6 6.6 12.98 6.88 13.29a.84.84 0 0 0 1.24 0c.28-.31 6.88-7.69 6.88-13.29 0-4-3.22-7.36-7.5-7.36Z"/><circle class="loc-pin-hole" cx="12" cy="9" r="2.6"/></svg>Dublin, Ireland</span>
+        <span><svg class="loc-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c-4.28 0-7.5 3.36-7.5 7.36 0 5.6 6.6 12.98 6.88 13.29a.84.84 0 0 0 1.24 0c.28-.31 6.88-7.69 6.88-13.29 0-4-3.22-7.36-7.5-7.36Z"/><circle class="loc-pin-hole" cx="12" cy="9" r="2.6"/></svg>Lisbon, Portugal</span>
+        <span><svg class="loc-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5c-4.28 0-7.5 3.36-7.5 7.36 0 5.6 6.6 12.98 6.88 13.29a.84.84 0 0 0 1.24 0c.28-.31 6.88-7.69 6.88-13.29 0-4-3.22-7.36-7.5-7.36Z"/><circle class="loc-pin-hole" cx="12" cy="9" r="2.6"/></svg>Santa Catarina, Brazil</span>
+      </div>
+    </div>
+
+    <div class="vinyl-stage" aria-hidden="true">
+      <div class="vinyl-tilt">
+        <div class="holo-turntable" data-tt>
+                    <div class="tt-spin-stage">
+          <div class="tt-scene">
+            <div class="tt-bottom"></div>
+            <div class="tt-back"></div>
+            <div class="tt-left"></div>
+            <div class="tt-front"></div>
+            <div class="tt-right"></div>
+            <div class="tt-top">
+              <span class="tt-foot fa"></span><span class="tt-foot fb"></span><span class="tt-foot fc"></span><span class="tt-foot fd"></span>
+                            <div class="tt-platter-wrap">
+                <div class="tt-platter">
+                  <svg class="tt-platter-svg" viewBox="0 0 200 200">
+                    <circle cx="100" cy="100" r="97" class="ht-groove-o"/>
+                    <circle cx="100" cy="100" r="80" class="ht-groove"/>
+                    <circle cx="100" cy="100" r="64" class="ht-groove"/>
+                    <circle cx="100" cy="100" r="48" class="ht-groove"/>
+                    <circle cx="100" cy="100" r="32" class="ht-groove"/>
+                    <circle cx="100" cy="100" r="19" class="ht-label-ring"/>
+                    <circle cx="100" cy="100" r="3" class="ht-spindle"/>
+                  </svg>
+                </div>
+                <div class="tt-scan"></div>
+              </div>
+              <div class="tt-tonearm">
+                <svg viewBox="0 0 200 200">
+                  <line x1="184" y1="14" x2="197" y2="5" class="ht-arm-cw-stem"/>
+                  <circle cx="197" cy="5" r="4.5" class="ht-arm-cw"/>
+                  <path d="M184,14 C165,18 145,28 128,42 C110,57 92,73 76,90" class="ht-arm-line"/>
+                  <circle cx="184" cy="14" r="8" class="ht-arm-pivot"/>
+                  <circle cx="184" cy="14" r="3" class="ht-arm-pivot-dot"/>
+                  <g transform="translate(76,90) rotate(-38)">
+                    <rect x="-2" y="-5" width="20" height="10" rx="1.5" class="ht-arm-headshell"/>
+                    <circle cx="-2" cy="0" r="1.8" class="ht-arm-stylus"/>
+                  </g>
+                </svg>
+              </div>
+              <div class="tt-start"></div>
+              <div class="tt-light la"></div>
+              <div class="tt-light lb"></div>
+              <div class="tt-fader"></div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="01 — Sobre">01 — About</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Do iniciante ao <span class='cyan'>profissional</span>">Beginners to <span class="cyan">professional</span></h2>
+    <div class="about-grid" style="grid-template-columns:1fr 1fr 1fr;">
+      <div class="about-col">
+        <h3 data-pt="Um projeto autêntico, feito para o ofício">An authentic project, built for the craft</h3>
+        <p data-pt="Este é um trabalho privado e exclusivo, nascido em Dublin com o propósito de oferecer uma experiência profunda e autêntica para novos DJs e entusiastas da música que querem desenvolver uma verdadeira arte da discotecagem e pesquisa musical — explorando som, estilo e contexto cultural através de um olhar artístico e contemporâneo.">This is a private and exclusive work, born in Dublin with the purpose of offering a deep, authentic experience for new DJs and music enthusiasts who want to develop a true art of disc-jockeying and musical research — exploring sound, style, and cultural context through an artistic, contemporary lens.</p>
+      </div>
+      <div class="about-col">
+        <h3 data-pt="Técnica, percepção, presença artística">Technique, perception, artistic presence</h3>
+        <p data-pt="Da agulha no vinil ao controlador digital, o DJ é o elo entre artista e público — moldando a atmosfera e conduzindo a pista. Aprender a mixar é aprender a escutar, sentir e expressar: unindo técnica e criatividade. O objetivo é formar DJs completos — artistas que entendem de música, dominam o som e compreendem o papel cultural da pista de dança.">From the needle on vinyl to the digital controller, the DJ is the link between artist and audience — shaping atmosphere and leading the dance floor. Learning to DJ is learning to listen, feel, and express: uniting technique and creativity. The goal is to train complete DJs — artists who understand music, master sound, and comprehend the cultural role of the dance floor.</p>
+      </div>
+      <div class="about-col">
+        <h3 data-pt="Propósito e missão">Purpose and mission</h3>
+        <p data-pt="Mais do que um curso, isso é um laboratório artístico de DJing — um espaço para aprender, experimentar e aperfeiçoar o ato de mixar, seja no vinil ou em controladores digitais. Cada aula é personalizada ao nível, estilo e objetivos do aluno: teórica e prática, ou só prática, sempre explorando o equilíbrio entre técnica, expressão e pesquisa sonora.">More than a course, this is an artistic DJing laboratory — a space to learn, experiment, and perfect the act of mixing, whether on vinyl or digital controllers. Each class is customized to the student's level, style, and goals: theoretical and practical, or practical only, always exploring the balance between technique, expression, and sound research.</p>
+      </div>
+    </div>
+
+    <div class="quote-strip">
+      <p data-pt="Disc-jockeying é a arte de controlar o som, o tempo e a emoção.">Disc-jockeying is the art of controlling the sound, the time, and the emotion.</p>
+    </div>
+
+    <div class="specs">
+      <div class="spec-cell"><div class="k" data-pt="Formatos">Formats</div><div class="v" data-pt="CDJ (Digital)<br>Vinil (Analógico)<br>Curso completo (Digital + Analógico)">CDJ (Digital)<br>Vinyl (Analog)<br>Full course (Digital + Analog)</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Formato">Format</div><div class="v" data-pt="Individual<br>Sessões presenciais 1:1">Individual<br>1:1 in-person sessions</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Duração da sessão">Session length</div><div class="v" data-pt="Aulas de 2 horas">2-hour classes</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Pacotes flexíveis">Flexible packages</div><div class="v" data-pt="2, 4, 6, 10 ou 15 aulas">2, 4, 6, 10 or 15 lessons</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Locais">Locations</div><div class="v" data-pt="Dublin 9, Irlanda<br>Lisboa, Portugal<br>Santa Catarina, Brasil">Dublin 9, Ireland<br>Lisbon, Portugal<br>Santa Catarina, Brazil</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Idiomas">Languages</div><div class="v" data-pt="Inglês<br>Português">English<br>Portuguese</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Faixa etária">Age range</div><div class="v" data-pt="10 a 90 anos">10 to 90 years old</div></div>
+      <div class="spec-cell"><div class="k" data-pt="Duração do curso">Course length</div><div class="v" data-pt="4 semanas a 3 meses">4 weeks to 3 months</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section id="audience" class="audience">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="02 — Para Quem É">02 — Who It's For</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Feito para <span class='cyan'>todo tipo de aluno</span>">Built for <span class="cyan">every kind of student</span></h2>
+
+    <div class="audience-grid">
+      <div class="audience-col">
+        <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+        <h4 data-pt="Novos artistas">New artists</h4>
+        <ul>
+          <li data-pt="Quem sempre quis ser DJ">Anyone who's always wanted to DJ</li>
+          <li data-pt="Artistas em busca de crescimento artístico e técnico">Artists chasing artistic and technical growth</li>
+          <li data-pt="Produtores que querem se apresentar ao vivo">Producers who want to perform live</li>
+          <li data-pt="DJs transitando entre vinil e digital">DJs moving between vinyl and digital</li>
+          <li data-pt="Músicos explorando novas linguagens criativas">Musicians exploring new creative languages</li>
+          <li data-pt="Apaixonados por música curiosos sobre o ofício">Music lovers curious about the craft</li>
+        </ul>
+      </div>
+      <div class="audience-col">
+        <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12l5 5L20 6"/></svg></div>
+        <h4 data-pt="Construindo habilidade">Skill builders</h4>
+        <ul>
+          <li data-pt="Iniciantes buscando uma base técnica sólida">Beginners seeking a solid technical foundation</li>
+          <li data-pt="Colecionadores de vinil que querem aprender a mixar">Vinyl collectors who want to learn to mix</li>
+          <li data-pt="Quem quer entrar no circuito de clubes e festas">Anyone wanting into the club and party circuit</li>
+          <li data-pt="Artistas interessados em pesquisa musical">Artists interested in musical research</li>
+          <li data-pt="DJs expandindo e atualizando suas referências">DJs expanding and updating their references</li>
+          <li data-pt="Quem quer contar histórias através do som">Anyone who wants to tell stories through sound</li>
+        </ul>
+      </div>
+      <div class="audience-col">
+        <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.6 5.7 6.2.7-4.6 4.3 1.2 6.1L12 15.9 6.6 18.8l1.2-6.1L3.2 8.4l6.2-.7z"/></svg></div>
+        <h4 data-pt="Som &amp; cultura">Sound &amp; culture</h4>
+        <ul>
+          <li data-pt="Pessoas em busca de expressão artística">People searching for artistic expression</li>
+          <li data-pt="Estudantes de áudio e técnicos de som">Audio students and sound technicians</li>
+          <li data-pt="Produtores e curadores de eventos">Promoters and event curators</li>
+          <li data-pt="Quem quer entender a fundo a cultura DJ">Anyone who wants to understand DJ culture deeply</li>
+          <li data-pt="Entusiastas conectados à cena musical local">Enthusiasts connected to the local music scene</li>
+          <li data-pt="Fãs de música eletrônica e cultura underground">Electronic music and underground culture fans</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEVELS ============ -->
+<section id="levels" class="levels">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="03 — Níveis">03 — Levels</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Cinco etapas, <span class='cyan'>um caminho</span>">Five stages, <span class="cyan">one path</span></h2>
+    <p class="section-desc" data-pt="Todo aluno passa pelo mesmo percurso — de montar uma coleção de discos a comandar uma pista. Comece de onde seu nível te colocar.">Every student moves through the same arc — from building a record collection to commanding a room. Start wherever your skill places you.</p>
+
+    <div class="journey-timeline">
+      <div class="jt-chart-wrap">
+        <svg class="jt-svg" viewBox="0 0 1000 110" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="jtFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" style="stop-color:var(--cyan);stop-opacity:0.32"/>
+              <stop offset="100%" style="stop-color:var(--cyan);stop-opacity:0"/>
+            </linearGradient>
+          </defs>
+          <path class="jt-area" d="M100,95 C180,90 220,80 300,72 C380,64 420,54 500,50 C580,46 620,34 700,30 C780,26 820,18 900,14 L900,110 L100,110 Z" fill="url(#jtFill)" stroke="none"/>
+          <path class="jt-path" d="M100,95 C180,90 220,80 300,72 C380,64 420,54 500,50 C580,46 620,34 700,30 C780,26 820,18 900,14"/>
+          <circle class="jt-dot" cx="100" cy="95" r="5"/>
+          <circle class="jt-dot" cx="300" cy="72" r="5"/>
+          <circle class="jt-dot" cx="500" cy="50" r="5"/>
+          <circle class="jt-dot" cx="700" cy="30" r="5"/>
+          <circle class="jt-dot jt-dot-final" cx="900" cy="14" r="6"/>
+        </svg>
+        <div class="jt-badge jt-badge-start" style="left:10%;top:86.4%;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 8l6 4-6 4V8Z" fill="currentColor" stroke="none"/></svg>
+          <span data-pt="Início">Start</span>
+        </div>
+        <div class="jt-badge jt-badge-finish" style="left:90%;top:12.7%;">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.6 5.7 6.2.7-4.6 4.3 1.2 6.1L12 15.9 6.6 18.8l1.2-6.1L3.2 8.4l6.2-.7z"/></svg>
+          <span data-pt="Pronto para o mercado">Market ready</span>
+        </div>
+      </div>
+      <div class="jt-labels">
+        <span data-pt="Iniciante">Beginner</span>
+        <span data-pt="Cue">Cue</span>
+        <span data-pt="Beatmatching">Beatmatching</span>
+        <span data-pt="Autoexpressão">Self-Expression</span>
+        <span data-pt="Kick Master">Kick Master</span>
+      </div>
+    </div>
+
+    <div class="journey-flow">
+      <div class="level-col">
+        <div class="level-head">
+          <div class="level-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="10" rx="1"/><path d="M4 9l3-5h10l3 5"/><line x1="4" y1="13" x2="20" y2="13"/></svg></div>
+          <div class="level-idx">01</div>
+        </div>
+        <div class="level-name-wrap">
+          <span class="level-tag" data-pt="Nível 1">Level 1</span>
+          <span class="level-name" data-pt="Iniciante">Beginner</span>
+        </div>
+        <p class="level-intro" data-pt="A base. Cultura DJ, conhecimento de equipamento, e como montar e curar uma coleção com identidade sonora de verdade.">The foundation. DJ culture, gear literacy, and how to build and curate a collection with real sonic identity.</p>
+        <div class="level-result"><span class="level-focus" data-pt="Cultura · Equipamento · Curadoria">Culture · Gear · Curation</span></div>
+      </div>
+      <div class="level-col">
+        <div class="level-head">
+          <div class="level-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3v18"/><path d="M9 8l9 4-9 4V8Z"/></svg></div>
+          <div class="level-idx">02</div>
+        </div>
+        <div class="level-name-wrap">
+          <span class="level-tag" data-pt="Nível 2">Level 2</span>
+          <span class="level-name" data-pt="Cue">Cue</span>
+        </div>
+        <p class="level-intro" data-pt="Primeiro contato com os decks. Beatmatching, cue points, EQ básico, e transições limpas e confiantes.">First hands on the decks. Beatmatching, cue points, EQ basics, and clean, confident transitions.</p>
+        <div class="level-result"><span class="level-focus" data-pt="Beatmatching · EQ · Cueing">Beatmatching · EQ · Cueing</span></div>
+      </div>
+      <div class="level-col">
+        <div class="level-head">
+          <div class="level-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="12" r="5.5"/><circle cx="16" cy="12" r="5.5"/></svg></div>
+          <div class="level-idx">03</div>
+        </div>
+        <div class="level-name-wrap">
+          <span class="level-tag" data-pt="Nível 3">Level 3</span>
+          <span class="level-name" data-pt="Beatmatching">Beatmatching</span>
+        </div>
+        <p class="level-intro" data-pt="Mixagem fluida e avançada. Ler a pista, construir energia, e transitar entre gêneros sem perder a plateia.">Fluid, advanced mixing. Reading a dance floor, building energy, and moving between genres without losing the room.</p>
+        <div class="level-result"><span class="level-focus" data-pt="Transições · Leitura de pista">Transitions · Floor Reading</span></div>
+      </div>
+      <div class="level-col">
+        <div class="level-head">
+          <div class="level-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="19.5" r="1.5"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><path d="M5.5 12a9 9 0 0 1 13 0"/><path d="M2.5 8.5a13.5 13.5 0 0 1 19 0"/></svg></div>
+          <div class="level-idx">04</div>
+        </div>
+        <div class="level-name-wrap">
+          <span class="level-tag" data-pt="Nível 4">Level 4</span>
+          <span class="level-name" data-pt="Autoexpressão">Self-Expression</span>
+        </div>
+        <p class="level-intro" data-pt="Encontrando seu som. Identidade sonora, presença de palco, e as escolhas artísticas que tornam um set inconfundivelmente seu.">Finding your sound. Sonic identity, stage presence, and the artistic choices that make a set unmistakably yours.</p>
+        <div class="level-result"><span class="level-focus" data-pt="Identidade · Presença de palco">Identity · Stage Presence</span></div>
+      </div>
+      <div class="level-col">
+        <div class="level-head">
+          <div class="level-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18h16v2H4z"/><path d="M4 18l-1.4-9 5.4 3 4-6.5 4 6.5 5.4-3-1.4 9"/></svg></div>
+          <div class="level-idx">05</div>
+        </div>
+        <div class="level-name-wrap">
+          <span class="level-tag" data-pt="Nível 5">Level 5</span>
+          <span class="level-name" data-pt="Kick Master">Kick Master</span>
+        </div>
+        <p class="level-intro" data-pt="Sets em nível profissional. Gravação, autocrítica, e preparação para bookings reais e apresentações públicas.">Professional-grade sets. Recording, self-critique, and preparation for real bookings and public performance.</p>
+        <div class="level-result"><span class="level-focus" data-pt="Gravação · Pronto para bookar">Recording · Booking-Ready</span></div>
+      </div>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <button class="btn-s" style="padding:17px 36px;font-size:12.5px;" onclick="openModal('trial')" data-pt="Descobrir seu nível — aula grátis">Check your level — free class</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CURRICULUM ============ -->
+<section id="curriculum">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="04 — Currículo">04 — Curriculum</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="O que você vai <span class='cyan'>aprender</span>">What you'll <span class="cyan">learn</span></h2>
+    <p class="section-desc" data-pt="Seis áreas que combinam técnica, percepção, criatividade e performance — até chegar a ser bookado de verdade. Você define o foco, o currículo se adapta ao que você quer trabalhar.">Six areas that combine technique, perception, creativity, and performance — through to actually getting booked. You set the focus, the curriculum bends to what you want to work on.</p>
+
+    <div class="method-grid">
+      <div class="method-block">
+        <div class="method-head"><div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div><div class="method-num">01</div></div>
+        <h4 class="method-title" data-pt="Cultura &amp; conceito DJ">DJ culture &amp; concept</h4>
+        <ul class="method-topics">
+          <li data-pt="História e evolução do turntablismo">History and evolution of turntablism</li>
+          <li data-pt="O papel do DJ na cultura musical">The DJ's role in musical culture</li>
+          <li data-pt="Gêneros, estilos e leitura de pista">Genres, styles, and floor reading</li>
+          <li data-pt="Curadoria e identidade sonora">Curation and sonic identity</li>
+        </ul>
+      </div>
+      <div class="method-block">
+        <div class="method-head"><div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="10" rx="1.5"/><circle cx="8" cy="13" r="2"/><circle cx="16" cy="13" r="2"/></svg></div><div class="method-num">02</div></div>
+        <h4 class="method-title" data-pt="Equipamento, formatos &amp; setup">Gear, formats &amp; setup</h4>
+        <ul class="method-topics">
+          <li data-pt="CDJs, mixers, toca-discos, controladoras, fones">CDJs, mixers, turntables, controllers, headphones</li>
+          <li data-pt="Montagem e conexão de um rig profissional">Assembling and connecting a professional rig</li>
+          <li data-pt="Vinil, CDs, USB e plataformas digitais (MP3, WAV, AIFF, FLAC)">Vinyl, CDs, USB, and digital platforms (MP3, WAV, AIFF, FLAC)</li>
+          <li data-pt="Fluxo de sinal e gerenciamento de biblioteca no Rekordbox">Signal flow and library management in Rekordbox</li>
+        </ul>
+      </div>
+      <div class="method-block">
+        <div class="method-head"><div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l10-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/></svg></div><div class="method-num">03</div></div>
+        <h4 class="method-title" data-pt="Teoria musical &amp; som">Music theory &amp; sound</h4>
+        <ul class="method-topics">
+          <li data-pt="Tempo, BPM e fraseado">Tempo, BPM, and phrasing</li>
+          <li data-pt="Mixagem harmônica e relações de tom">Harmonic mixing and key relationships</li>
+          <li data-pt="Estrutura e arranjo de faixas">Track structure and arrangement</li>
+          <li data-pt="Leitura de energia e dinâmica de uma faixa">Reading energy and dynamics in a track</li>
+        </ul>
+      </div>
+      <div class="method-block">
+        <div class="method-head"><div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h4l2-7 4 14 2-7h6"/></svg></div><div class="method-num">04</div></div>
+        <h4 class="method-title" data-pt="Mixagem &amp; performance">Mixing &amp; performance</h4>
+        <ul class="method-topics">
+          <li data-pt="Beatmatching manual e cueing">Manual beatmatching and cueing</li>
+          <li data-pt="EQ, filtros e efeitos criativos">EQ, filters, and creative effects</li>
+          <li data-pt="Transições, cortes e mixagem híbrida">Transitions, cuts, and hybrid mixing</li>
+          <li data-pt="Controle de energia e leitura de público">Energy control and crowd reading</li>
+        </ul>
+      </div>
+      <div class="method-block">
+        <div class="method-head"><div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6Z"/></svg></div><div class="method-num">05</div></div>
+        <h4 class="method-title" data-pt="Identidade &amp; crescimento artístico">Identity &amp; artistic growth</h4>
+        <ul class="method-topics">
+          <li data-pt="Prática livre guiada e supervisionada">Guided, supervised free practice</li>
+          <li data-pt="Desenvolvimento da sua identidade sonora">Developing your sonic identity</li>
+          <li data-pt="Presença de palco e performance artística">Stage presence and artistic performance</li>
+          <li data-pt="Gravação e análise dos seus sets">Recording and analysis of your sets</li>
+        </ul>
+      </div>
+      <div class="method-block">
+        <div class="method-head"><div class="method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div><div class="method-num">06</div></div>
+        <h4 class="method-title" data-pt="Bookings &amp; prática profissional">Bookings &amp; professional practice</h4>
+        <ul class="method-topics">
+          <li data-pt="Montagem de um promo mix e demo reel">Building a promo mix and demo reel</li>
+          <li data-pt="Abordagem a produtores, clubes e festivais">Approaching promoters, clubs, and festivals</li>
+          <li data-pt="Etiqueta de booking e comunicação profissional">Booking etiquette and professional communication</li>
+          <li data-pt="Crescimento da sua presença online">Growing your online presence</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:28px;font-family:var(--mono);font-size:12px;color:rgba(246,244,238,0.38);" data-pt="O currículo é modular — os módulos se adaptam ao seu ritmo.">The curriculum is modular — modules adapt to your pace.</p>
+  </div>
+</section>
+
+<!-- ============ TIPS ============ -->
+<section id="tips">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="05 — Dicas">05 — Tips</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Afie sua <span class='cyan'>prática</span>">Sharpen your <span class="cyan">practice</span></h2>
+    <p class="section-desc" data-pt="Hábitos simples que fazem a diferença entre um aluno que faz aulas e um DJ que está de fato construindo um ofício.">Simple habits that make the difference between a student who takes classes and a DJ who's actually building a craft.</p>
+
+    <div class="tips-grid">
+      <div class="tip-c"><div class="tip-n">01</div><div><div class="tip-title" data-pt="Traga sua própria música">Bring your own music</div><div class="tip-body" data-pt="Pen drive, vinil, ou uma playlist — venha com faixas que você realmente quer mixar.">Pen drive, vinyl, or a playlist — come with tracks you actually want to mix.</div></div></div>
+      <div class="tip-c"><div class="tip-n">02</div><div><div class="tip-title" data-pt="Grave sua prática">Record your practice</div><div class="tip-body" data-pt="Grave suas sessões e ouça depois — você vai perceber coisas que seu ouvido perde ao vivo.">Record your sessions and listen back — you'll catch things your ears miss live.</div></div></div>
+      <div class="tip-c"><div class="tip-n">03</div><div><div class="tip-title" data-pt="Pratique entre as aulas">Practice between classes</div><div class="tip-body" data-pt="Quinze minutos por dia já fazem diferença real em algumas semanas.">Fifteen minutes a day already makes a real difference over a few weeks.</div></div></div>
+      <div class="tip-c"><div class="tip-n">04</div><div><div class="tip-title" data-pt="Observe outros DJs">Watch other DJs</div><div class="tip-body" data-pt="Observe sets, analise estilos e técnicas, e anote o que move uma pista.">Observe sets, analyze styles and techniques, and note what moves a room.</div></div></div>
+      <div class="tip-c"><div class="tip-n">05</div><div><div class="tip-title" data-pt="Explore terreno novo">Explore new ground</div><div class="tip-body" data-pt="Experimente novos BPMs e gêneros fora da sua zona de conforto — isso afia seu ouvido.">Try new BPMs and genres outside your comfort zone — it sharpens your ear.</div></div></div>
+      <div class="tip-c"><div class="tip-n">06</div><div><div class="tip-title" data-pt="Estude a pista">Study the floor</div><div class="tip-body" data-pt="Aprenda a estrutura de faixas e como uma pista de dança realmente se comporta e responde.">Learn track structure and how a dance floor actually behaves and responds.</div></div></div>
+      <div class="tip-c"><div class="tip-n">07</div><div><div class="tip-title" data-pt="Organize por energia">Organize by energy</div><div class="tip-body" data-pt="Monte playlists em torno da energia e do momento da pista, não só do gênero.">Build playlists around energy and dance floor moment, not just genre.</div></div></div>
+      <div class="tip-c"><div class="tip-n">08</div><div><div class="tip-title" data-pt="Confie no seu ouvido">Trust your ear</div><div class="tip-body" data-pt="Desenvolva escuta ativa — confie mais no seu ouvido do que na tela.">Develop active listening — trust your ear more than the display.</div></div></div>
+      <div class="tip-c"><div class="tip-n">09</div><div><div class="tip-title" data-pt="Trabalhe sua identidade">Work on your identity</div><div class="tip-body" data-pt="Sua imagem e identidade artística fazem parte do ofício, não são um detalhe secundário.">Your image and artistic identity are part of the craft, not an afterthought.</div></div></div>
+      <div class="tip-c"><div class="tip-n">10</div><div><div class="tip-title" data-pt="Seja consistente">Stay consistent</div><div class="tip-body" data-pt="Consistência, foco e paixão — é isso que de fato constrói um DJ de verdade.">Consistency, focus, and passion — that's what actually builds a real DJ.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPMENT ============ -->
+<section id="equipment">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="06 — Equipamento">06 — Equipment</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Equipamento de <span class='cyan'>estúdio</span>">Studio-grade <span class="cyan">gear</span></h2>
+    <p class="section-desc" data-pt="Você treina em equipamento de nível profissional, o mesmo que você encontraria atrás da cabine.">You train on professional-level equipment, the same you'd find behind the booth.</p>
+    <div class="equip-grid">
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg></div>
+        <div class="equip-name" data-pt="Fones Technics">Technics headphones</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 6l12 4-2 5-12-4Z"/><line x1="15" y1="10" x2="10" y2="21"/><circle cx="10" cy="21" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+        <div class="equip-name" data-pt="Agulhas profissionais de monitoramento<br>(prática em vinil)">Professional monitoring needles<br>(vinyl practice)</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="8" r="3"/><circle cx="12" cy="16" r="2"/></svg></div>
+        <div class="equip-name" data-pt="Monitores de estúdio Yamaha HS8">Yamaha HS8 studio monitors</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="12" r="4"/><line x1="7" y1="12" x2="7" y2="9"/><circle cx="17" cy="12" r="4"/><line x1="17" y1="12" x2="19.1" y2="10.4"/></svg></div>
+        <div class="equip-name" data-pt="Mixers rotativos">Rotary mixers</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="12" r="8"/><circle cx="11" cy="12" r="1.6" fill="currentColor" stroke="none"/><path d="M16.5 6.5l3.5-2M20.5 5l.7 1.7-1.7.8"/></svg></div>
+        <div class="equip-name" data-pt="2× toca-discos">2× turntables</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="13" r="4.2"/><rect x="14.5" y="7" width="4.5" height="3.2" rx="0.5"/></svg></div>
+        <div class="equip-name" data-pt="3× CDJs<br>(1 old-school)">3× CDJs<br>(1 old-school)</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg></div>
+        <div class="equip-name" data-pt="2 tipos de fone">2 headphone types</div>
+      </div>
+      <div class="equip-card">
+        <div class="equip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="1.5"/><circle cx="7.5" cy="12" r="3.2"/><circle cx="16.5" cy="12" r="3.2"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+        <div class="equip-name" data-pt="Controladora Pioneer DJ XDJ-RR">Pioneer DJ XDJ-RR<br>controller</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICES ============ -->
+<section id="prices" class="paths">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="07 — Preços">07 — Prices</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Carga <span class='cyan'>horária</span>">Course <span class="cyan">load</span></h2>
+    <p class="section-desc" data-pt="Três formatos, adaptados aos seus objetivos. As aulas são presenciais no nosso estúdio em Dublin 9, com estrutura profissional caseira e equipamento de alto nível. Cada sessão dura 2 horas — dividida em 1h de teoria mais 1h de prática, ou 2 horas só de prática — agendadas semanalmente ou a cada 15 dias.">Three formats, adapted to your goals. Classes are in-person at our Dublin 9 studio, with home professional structure and high-level equipment. Every session runs 2 hours — split as 1h theory plus 1h hands-on practice, or 2 hours of practice only — scheduled weekly or once every 15 days.</p>
+
+    <p style="margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);" data-pt="Janelas de inscrição abertas">Open enrollment windows</p>
+    <div class="dj-timeline">
+      <div class="dj-tl-track">
+        <div class="dj-tl-row">
+          <div class="dj-tl-label" data-pt="<span class='dj-tl-dot'></span>Dublin, Irlanda"><span class="dj-tl-dot"></span>Dublin, Ireland</div>
+          <div class="dj-tl-bar-wrap">
+            <div class="dj-tl-bar" style="left:0%;width:50%;" data-pt="<span>Jan – Dez 2026</span>"><span>Jan – Dec 2026</span></div>
+          </div>
+        </div>
+        <div class="dj-tl-row">
+          <div class="dj-tl-label" data-pt="<span class='dj-tl-dot'></span>Santa Catarina, Brasil"><span class="dj-tl-dot"></span>Santa Catarina, Brazil</div>
+          <div class="dj-tl-bar-wrap">
+            <div class="dj-tl-bar" style="left:45.83%;width:12.5%;" data-pt="<span>Dez 2026 – Fev 2027</span>"><span>Dec 2026 – Feb 2027</span></div>
+          </div>
+        </div>
+        <div class="dj-tl-row">
+          <div class="dj-tl-label" data-pt="<span class='dj-tl-dot'></span>Lisboa, Portugal"><span class="dj-tl-dot"></span>Lisbon, Portugal</div>
+          <div class="dj-tl-bar-wrap">
+            <div class="dj-tl-bar" style="left:58.33%;width:41.67%;" data-pt="<span>Mar – Dez 2027</span>"><span>Mar – Dec 2027</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dj-tl-axis">
+        <div class="dj-tl-tick" style="left:0%;" data-pt="Jan 2026">Jan 2026</div>
+        <div class="dj-tl-tick" style="left:25%;" data-pt="Jul 2026">Jul 2026</div>
+        <div class="dj-tl-tick tick-b" style="left:29.1667%;" data-pt="Ago">Aug</div>
+        <div class="dj-tl-tick" style="left:33.3333%;" data-pt="Set">Sep</div>
+        <div class="dj-tl-tick tick-b" style="left:37.5%;" data-pt="Out">Oct</div>
+        <div class="dj-tl-tick" style="left:41.6667%;" data-pt="Nov">Nov</div>
+        <div class="dj-tl-tick tick-b" style="left:45.8333%;" data-pt="Dez 2026">Dec 2026</div>
+        <div class="dj-tl-tick" style="left:50%;" data-pt="Jan 2027">Jan 2027</div>
+        <div class="dj-tl-tick tick-b" style="left:54.1667%;" data-pt="Fev">Feb</div>
+        <div class="dj-tl-tick" style="left:58.3333%;" data-pt="Mar 2027">Mar 2027</div>
+        <div class="dj-tl-tick" style="left:70.8333%;" data-pt="Jun 2027">Jun 2027</div>
+        <div class="dj-tl-tick" style="left:83.3333%;" data-pt="Set 2027">Sep 2027</div>
+        <div class="dj-tl-tick" style="left:100%;" data-pt="Dez 2027">Dec 2027</div>
+      </div>
+    </div>
+
+    <div class="path-cards" style="grid-template-columns:repeat(3,1fr);margin-top:60px;">
+      <div class="path-card">
+        <div class="path-tag" data-pt="Caminho 01">Path 01</div>
+        <h3 data-pt="Turntablismo Digital">Digital Turntablism</h3>
+        <div class="format" data-pt="CDJ / Digital">CDJ / Digital</div>
+        <table class="path-table">
+          <tr><th data-pt="Aulas">Classes</th><th data-pt="Carga">Load</th><th data-pt="Preço">Price</th></tr>
+          <tr><td>2</td><td>4h</td><td>€250</td></tr>
+          <tr><td>4</td><td>8h</td><td>€350</td></tr>
+          <tr><td>6</td><td>12h</td><td>€500</td></tr>
+          <tr><td>8</td><td>16h</td><td>€600</td></tr>
+          <tr><td>10</td><td>20h</td><td>€800</td></tr>
+        </table>
+        <div class="recommended">
+          <div class="rk" data-pt="Ideal para">Best for</div>
+          <p data-pt="Iniciantes e DJs em desenvolvimento começando ou aprimorando a técnica em CDJs, mixers e controladoras — estrutura musical, sincronia e controle criativo do som.">Beginners and developing DJs starting or sharpening their technique on CDJs, mixers, and controllers — musical structure, sync, and creative sound control.</p>
+        </div>
+      </div>
+
+      <div class="path-card">
+        <div class="path-tag" data-pt="Caminho 02">Path 02</div>
+        <h3 data-pt="Turntablismo Analógico">Analog Turntablism</h3>
+        <div class="format" data-pt="Vinil / Analógico">Vinyl / Analog</div>
+        <table class="path-table">
+          <tr><th data-pt="Aulas">Classes</th><th data-pt="Carga">Load</th><th data-pt="Preço">Price</th></tr>
+          <tr><td>4</td><td>8h</td><td>€350</td></tr>
+          <tr><td>6</td><td>12h</td><td>€350</td></tr>
+          <tr><td>8</td><td>16h</td><td>€600</td></tr>
+          <tr><td>10</td><td>20h</td><td>€800</td></tr>
+        </table>
+        <div class="recommended">
+          <div class="rk" data-pt="Ideal para">Best for</div>
+          <p data-pt="Alunos em busca de maestria — precisão técnica e treino de ouvido, beatmatching manual e equalização real, enraizados na tradição do ofício.">Students chasing mastery — technical precision and ear training, manual beatmatching, and real equalization, rooted in the tradition of the craft.</p>
+        </div>
+      </div>
+
+      <div class="path-card">
+        <div class="path-tag" data-pt="Caminho 03">Path 03</div>
+        <h3 data-pt="Curso Completo">Full Course</h3>
+        <div class="format" data-pt="CDJ + Vinil + PDF de Teoria Avançada">CDJ + Vinyl + Advanced Theory PDF</div>
+        <table class="path-table">
+          <tr><th data-pt="Aulas">Classes</th><th data-pt="Carga">Load</th><th data-pt="Preço">Price</th></tr>
+          <tr><td>10</td><td>20h</td><td>€800</td></tr>
+          <tr><td>15</td><td>30h</td><td>€1000</td></tr>
+        </table>
+        <div class="recommended">
+          <div class="rk" data-pt="Ideal para">Best for</div>
+          <p data-pt="Artistas em busca de formação completa e em nível profissional — teoria avançada e prática híbrida. Ao completar o caminho de 15 aulas, você recebe uma certificação, uma gravação profissional de um set completo, e a chance de se apresentar em um evento da Sounds Of The Streetz ou do Clube do Snare.">Artists seeking complete, professional-level training — advanced theory and hybrid practice. On completing the 15-class path, you receive a certification, a professional recording of one full DJ set, and the chance to perform at a Sounds Of The Streetz or Clube do Snare event.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="enroll-head">
+      <span class="enroll-tag" data-pt="Começando sua jornada na mixagem">Starting your mixing journey</span>
+      <h3 class="enroll-title" data-pt="O processo é simples e direto">The process is simple and direct</h3>
+    </div>
+    <div class="steps-row" data-step-reveal style="grid-template-columns:repeat(2,1fr);">
+      <div class="step-c">
+        <div class="step-badge">01</div>
+        <div class="step-title" data-pt="Reunião de alinhamento">Alignment meeting</div>
+        <div class="step-body" data-pt="Uma reunião, presencial ou online, para definir seu nível, estilo e objetivos. O plano é personalizado aos seus objetivos e desenvolvimento.">A meeting, in person or online, to define your level, style, and objectives. The plan is personalized to your goals and development.</div>
+      </div>
+      <div class="step-c">
+        <div class="step-badge">02</div>
+        <div class="step-title" data-pt="Formalização e agendamento">Formalization and scheduling</div>
+        <div class="step-body" data-pt="Depois do alinhamento, você escolhe seu pacote e formalizamos o contrato e pagamento, e então agendamos as aulas conforme sua disponibilidade e a do professor.">After the alignment, you choose your package and we formalize the contract and payment, then schedule classes around your and the teacher's availability.</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <button class="btn-s" style="padding:17px 36px;font-size:12.5px;" onclick="openModal('lessons')" data-pt="Agendar suas aulas">Book your lessons</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING CTA ============ -->
+<section id="book" class="booking">
+  <div class="wrap reveal">
+    <div class="holo-turntable hg-cta" data-tt aria-hidden="true">
+            <div class="tt-spin-stage">
+      <div class="tt-scene">
+        <div class="tt-bottom"></div>
+        <div class="tt-back"></div>
+        <div class="tt-left"></div>
+        <div class="tt-front"></div>
+        <div class="tt-right"></div>
+        <div class="tt-top">
+          <span class="tt-foot fa"></span><span class="tt-foot fb"></span><span class="tt-foot fc"></span><span class="tt-foot fd"></span>
+                    <div class="tt-platter-wrap">
+            <div class="tt-platter">
+              <svg class="tt-platter-svg" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="97" class="ht-groove-o"/>
+                <circle cx="100" cy="100" r="80" class="ht-groove"/>
+                <circle cx="100" cy="100" r="64" class="ht-groove"/>
+                <circle cx="100" cy="100" r="48" class="ht-groove"/>
+                <circle cx="100" cy="100" r="32" class="ht-groove"/>
+                <circle cx="100" cy="100" r="19" class="ht-label-ring"/>
+                <circle cx="100" cy="100" r="3" class="ht-spindle"/>
+              </svg>
+            </div>
+            <div class="tt-scan"></div>
+          </div>
+          <div class="tt-tonearm">
+            <svg viewBox="0 0 200 200">
+              <line x1="184" y1="14" x2="197" y2="5" class="ht-arm-cw-stem"/>
+              <circle cx="197" cy="5" r="4.5" class="ht-arm-cw"/>
+              <path d="M184,14 C165,18 145,28 128,42 C110,57 92,73 76,90" class="ht-arm-line"/>
+              <circle cx="184" cy="14" r="8" class="ht-arm-pivot"/>
+              <circle cx="184" cy="14" r="3" class="ht-arm-pivot-dot"/>
+              <g transform="translate(76,90) rotate(-38)">
+                <rect x="-2" y="-5" width="20" height="10" rx="1.5" class="ht-arm-headshell"/>
+                <circle cx="-2" cy="0" r="1.8" class="ht-arm-stylus"/>
+              </g>
+            </svg>
+          </div>
+          <div class="tt-start"></div>
+          <div class="tt-light la"></div>
+          <div class="tt-light lb"></div>
+          <div class="tt-fader"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    <h2 data-pt="<span class='cyan'>É hora de sintonizar a frequência</span><br>do seu próximo capítulo"><span class="cyan">It's time to set the frequency</span><br>for your next chapter</h2>
+    <p data-pt="Agende uma aula experimental, conheça o estúdio, e veja se é a escolha certa — sem pressão, sem compromisso.">Book a trial lesson, meet the studio, and see if it's the right fit — no pressure, no commitment.</p>
+    <button class="booking-open-btn" onclick="openModal('trial')" data-pt="Agendar aula experimental">Book a trial lesson</button>
+    <div class="booking-note" data-pt="Pedido de aula experimental · Sem custo para perguntar · Sem compromisso">Trial lesson request · Free to ask · No commitment</div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="08 — Perguntas">08 — FAQ</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Perguntas <span class='cyan'>frequentes</span>">Common <span class="cyan">questions</span></h2>
+
+    <div class="faq-diagram">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-num">01</span>
+          <h4 data-pt="Que equipamento eu vou usar na aula?">What equipment will I use in class?</h4>
+          <span class="faq-icon"><span class="fi-plus">+</span><span class="fi-minus">−</span></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-pt="Fones Technics, agulhas profissionais de monitoramento para prática em vinil, monitores de estúdio Yamaha HS8, mixers rotativos, dois toca-discos e dois CDJs — tudo de nível profissional.">Technics headphones, professional monitoring needles for vinyl practice, Yamaha HS8 studio monitors, rotary mixers, two turntables, and two CDJs — all professional-grade.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-num">02</span>
+          <h4 data-pt="Para quem são os cursos?">Who are the courses for?</h4>
+          <span class="faq-icon"><span class="fi-plus">+</span><span class="fi-minus">−</span></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-pt="Iniciantes completos, DJs transitando entre vinil e digital, produtores que querem se apresentar ao vivo, colecionadores de vinil, estudantes de áudio, produtores de eventos, e qualquer curioso pelo ofício — de 10 a 90 anos.">Complete beginners, DJs moving between vinyl and digital, producers who want to perform live, vinyl collectors, audio students, event promoters, and anyone curious about the craft — ages 10 to 90.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-num">03</span>
+          <h4 data-pt="Como funcionam as sessões?">How do the sessions work?</h4>
+          <span class="faq-icon"><span class="fi-plus">+</span><span class="fi-minus">−</span></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-pt="Sessões individuais presenciais 1:1, de 2 horas cada. Escolha um pacote — 2, 4, 6, 10 ou 15 aulas — e um ritmo entre 4 semanas e 3 meses que caiba na sua agenda.">Individual, in-person 1:1 sessions, 2 hours each. Choose a package — 2, 4, 6, 10, or 15 classes — and a pace between 4 weeks and 3 months that fits your schedule.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-num">04</span>
+          <h4 data-pt="Como as aulas são estruturadas e conduzidas?">How are lessons structured and led?</h4>
+          <span class="faq-icon"><span class="fi-plus">+</span><span class="fi-minus">−</span></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-pt="Toda aula é individual e personalizada, com o foco definido junto com o aluno. Entre em contato para saber mais sobre quem conduz suas sessões.">Every lesson is one-on-one and personalized, with the focus set together with the student. Get in touch to learn more about who's leading your sessions.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-num">05</span>
+          <h4 data-pt="Posso dar isso de presente?">Can I give this as a gift card?</h4>
+          <span class="faq-icon"><span class="fi-plus">+</span><span class="fi-minus">−</span></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-pt="Sim — qualquer caminho pode ser presenteado. Entre em contato pelos canais abaixo para montar um vale-presente personalizado.">Yes — every path can be gifted. Reach out through the contact channels below to set up a personalized gift voucher.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span class="faq-q-num">06</span>
+          <h4 data-pt="E se eu precisar remarcar uma aula?">What if I need to reschedule a class?</h4>
+          <span class="faq-icon"><span class="fi-plus">+</span><span class="fi-minus">−</span></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner" data-pt="Basta avisar com antecedência que a gente encontra outro horário. As aulas são agendadas conforme sua disponibilidade e a do professor, então uma troca costuma ser fácil de arranjar.">Just reach out ahead of time and we'll find another slot. Classes are scheduled around your availability and the teacher's, so a change is usually easy to arrange.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REACH ============ -->
+<section id="reach" class="feedback">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="09 — Alcance">09 — Reach</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Conectado com <span class='cyan'>o mundo</span>">Connected to <span class="cyan">the world</span></h2>
+    <p class="section-desc" data-pt="Quase uma década de trabalho prático com DJs e produtores no Brasil e na Europa — ensinando, orientando e gerindo carreiras.">Almost a decade of hands-on work with DJs and producers across Brazil and Europe — teaching, coaching, and managing careers.</p>
+
+    <div class="fb-grid">
+      <div class="fb-card"><div class="fb-num">+30</div><div class="fb-lbl" data-pt="Alunos de DJ e turntablismo formados na Irlanda">DJ &amp; turntablism students trained in Ireland</div></div>
+      <div class="fb-card"><div class="fb-num">9</div><div class="fb-lbl" data-pt="Anos do Pemax ensinando produção musical e processo criativo">Years of Pemax teaching music production &amp; creative process</div></div>
+      <div class="fb-card"><div class="fb-num">+10</div><div class="fb-lbl" data-pt="Workshops online realizados">Online workshops delivered</div></div>
+      <div class="fb-card"><div class="fb-num">+100</div><div class="fb-lbl" data-pt="Pessoas alcançadas gratuitamente através de workshops e clínicas, como incentivo às artes">People reached for free through workshops &amp; clinics, as an incentive to the arts</div></div>
+      <div class="fb-card"><div class="fb-num">20</div><div class="fb-lbl" data-pt="Anos de experiência na indústria da música eletrônica">Years of experience in the electronic music industry</div></div>
+      <div class="fb-card"><div class="fb-num">3</div><div class="fb-lbl" data-pt="Artistas em gestão de carreira de longo prazo, 1+ ano cada">Artists under long-term career management, 1+ year each</div></div>
+      <div class="fb-card"><div class="fb-num">+10</div><div class="fb-lbl" data-pt="Alunos trabalhando com a Lab há mais de 6 anos">Students working with the Lab for over 6 years</div></div>
+      <div class="fb-card"><div class="fb-num">+200</div><div class="fb-lbl" data-pt="Artistas com quem trabalhamos em produção, DJing e carreira artística">Artists worked with in production, DJing &amp; artistic career</div></div>
+    </div>
+
+    <div class="loc-strip">
+      <span data-pt="Dublin, Irlanda">Dublin, Ireland</span>
+      <span data-pt="Lisboa, Portugal">Lisbon, Portugal</span>
+      <span data-pt="Santa Catarina, Brasil">Santa Catarina, Brazil</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STUDENT FEEDBACK ============ -->
+<section id="testimonials" class="testimonials">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="10 — Feedback">10 — Feedback</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="O que <span class='cyan'>os alunos dizem</span>">What <span class="cyan">students say</span></h2>
+    <p class="section-desc" data-pt="Depoimentos reais de alunos que treinaram diretamente com o Pemax.">Real feedback from students who trained directly with Pemax.</p>
+
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-quote">&ldquo;</div>
+        <p class="test-text">Pedro is an amazing teacher. From the moment we met, I knew I wanted to take classes with him. I completed the full 15-lesson course (CDJ and vinyl) and I'm extremely happy with the results. His teaching style is clear, patient, and genuinely supportive — he adapts every lesson to how you learn best and never moves on until it truly clicks. Beyond the technical skills, he helped me build real confidence behind the decks. I walked away not just knowing how to mix, but understanding why it works. Highly recommended to anyone serious about learning!</p>
+        <div class="test-author">
+          <div class="test-avatar"><span>Photo</span></div>
+          <div class="test-author-info"><strong>H-MOR</strong><span data-pt="DJ LAB Classes · Dublin">DJ LAB Classes · Dublin</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">&ldquo;</div>
+        <p class="test-text">I started with absolutely no knowledge of DJing, music, or equipment, and Pedro helped me build everything from the ground up — focusing on fundamentals instead of rushing into tricks. He's talented, generous with his time, and always pushed me outside my comfort zone. I can confidently play a set today because of what he taught me, and I'd highly recommend him to anyone looking to learn.</p>
+        <div class="test-author">
+          <div class="test-avatar"><span>Photo</span></div>
+          <div class="test-author-info"><strong>HAKA</strong><span data-pt="DJ LAB Classes · Dublin">DJ LAB Classes · Dublin</span></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-quote">&ldquo;</div>
+        <p class="test-text">I highly recommend Pedro Maximo! He taught me how to mix with incredible patience, and I am confident he did an absolutely great job. If you want to grow your skills quickly and learn from someone who truly cares about your progress, he's the one to call.</p>
+        <div class="test-author">
+          <div class="test-avatar"><span>Photo</span></div>
+          <div class="test-author-info"><strong>LICASTRO</strong><span data-pt="DJ LAB Classes · Dublin">DJ LAB Classes · Dublin</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<!-- NOTE: tiles below are styled placeholders. Replace each .gallery-ph div with
+     <img src="your-photo.jpg" alt="..."> once real photos are attached. -->
+<section id="gallery" class="gallery">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="11 — Galeria">11 — Gallery</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Por trás das <span class='cyan'>pick-ups</span>">Behind the <span class="cyan">decks</span></h2>
+    <p class="section-desc" data-pt="Sessões, trabalho de estúdio, e momentos de dentro do ecossistema DJ LAB Classes.">Sessions, studio work, and moments from inside the DJ LAB Classes ecosystem.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-tile gt-a"><div class="gallery-ph"><span data-pt="Foto">Photo</span></div></div>
+      <div class="gallery-tile gt-b"><div class="gallery-ph"><span data-pt="Foto">Photo</span></div></div>
+      <div class="gallery-tile gt-c"><div class="gallery-ph"><span data-pt="Foto">Photo</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GIFT CARD ============ -->
+<section id="gift" class="giftcard">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="12 — Presente">12 — Gift</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Dê a alguém <span class='cyan'>a cabine</span>">Give someone <span class="cyan">the booth</span></h2>
+    <p class="section-desc" data-pt="Conhece alguém que sempre quis ser DJ? Presenteie com uma vaga na DJ LAB — escolha um nível, um pacote, ou deixe que a pessoa escolha o próprio caminho.">Know someone who's always wanted to DJ? Gift them a spot at DJ LAB — pick a level, a package, or let the recipient choose their own path.</p>
+
+    <div class="gift-glow" aria-hidden="true"></div>
+    <div class="gift-voucher">
+      <div class="gift-voucher-top">
+        <div class="gift-brand"><svg class="gift-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="8" width="18" height="13" rx="1.5"/><path d="M3 12h18"/><path d="M12 8v13"/><path d="M12 8c-1.2-3-3.5-4.5-5-3.2C5.7 6 7.6 8 12 8Z"/><path d="M12 8c1.2-3 3.5-4.5 5-3.2C18.3 6 16.4 8 12 8Z"/></svg>DJ LAB<span class="dot">.</span></div>
+        <div class="gift-type" data-pt="Vale-Presente">Gift Voucher</div>
+      </div>
+
+      <div class="gift-divider"></div>
+
+      <div class="gift-voucher-body">
+        <div class="gift-field"><span class="gift-k" data-pt="Emitido para">Issued to</span><span class="gift-v gift-blank gift-placeholder" data-pt="nome do presenteado">recipient's name</span></div>
+        <div class="gift-field"><span class="gift-k" data-pt="Valor">Value</span><span class="gift-v gift-blank gift-placeholder" data-pt="1 caminho de curso · CDJ, Vinil ou Curso Completo">1 course path · CDJ, Vinyl or Full Course</span></div>
+        <div class="gift-field"><span class="gift-k" data-pt="Código do vale">Voucher code</span><span class="gift-v gift-blank mono">LAB-____-____</span></div>
+        <div class="gift-field"><span class="gift-k" data-pt="Válido até">Valid until</span><span class="gift-v gift-blank gift-placeholder" data-pt="12 meses a partir da emissão">12 months from issue</span></div>
+        <div class="gift-field"><span class="gift-k" data-pt="Emitido por">Issued by</span><span class="gift-v" data-pt="Pemax · DJ LAB Classes">Pemax · DJ LAB Classes</span></div>
+      </div>
+
+      <div class="gift-perks">
+        <div class="gift-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v12H8l-4 4Z"/></svg><span data-pt="Sessões de 2h">2h sessions</span></div>
+        <div class="gift-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg><span data-pt="1:1 particular">1:1 private</span></div>
+        <div class="gift-perk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1.5c-4.28 0-7.5 3.36-7.5 7.36 0 5.6 6.6 12.98 6.88 13.29a.84.84 0 0 0 1.24 0c.28-.31 6.88-7.69 6.88-13.29 0-4-3.22-7.36-7.5-7.36Z"/><circle cx="12" cy="8.86" r="2.6"/></svg><span data-pt="3 locais">3 locations</span></div>
+      </div>
+
+      <div class="gift-divider"></div>
+
+      <div class="gift-voucher-bottom">
+        <p class="gift-note" data-pt="Resgatável por um caminho de curso na DJ LAB, sujeito à disponibilidade. Não reembolsável, transferível uma vez. Entre em contato para emitir ou resgatar um vale.">Redeemable for one course path at DJ LAB, subject to availability. Non-refundable, transferable once. Contact us to issue or redeem a voucher.</p>
+        <button class="btn btn-solid gift-cta" onclick="openModal('gift')" data-pt="Solicitar vale-presente">Request a gift voucher<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ECOSYSTEM (The LAB mindmap) ============ -->
+<section id="ecosystem" class="ecomap">
+  <div class="wrap reveal">
+    <div class="label-row"><span class="label-num" data-pt="13 — A LAB">13 — The LAB</span><div class="label-line"></div></div>
+    <h2 class="section-title" data-pt="Uma escola, <span class='cyan'>três labs</span>">One school, <span class="cyan">three labs</span></h2>
+    <p class="section-desc" data-pt="A DJ LAB foi construída na crença de que educação musical vai além da técnica — é sobre identidade, processo criativo e visão de carreira. Três projetos complementares — DJ LAB, LAB Management e LAB Productions — vivem em um só ecossistema que acompanha o artista em toda a jornada: do primeiro setup à gestão de uma carreira internacional.">DJ LAB was built on the belief that music education goes beyond technique — it's about identity, creative process, and career vision. Three complementary projects — DJ LAB, LAB Management, and LAB Productions — live in one ecosystem that follows the artist through the full journey: from first setup to managing an international career.</p>
+
+    <div class="lab-stats">
+      <div class="lab-stat"><div class="num">3</div><div class="lbl" data-pt="Marcas">Brands</div></div>
+      <div class="lab-stat"><div class="num">160+</div><div class="lbl" data-pt="Membros ativos">Active members</div></div>
+      <div class="lab-stat"><div class="num">100+</div><div class="lbl" data-pt="Alunos online">Online students</div></div>
+      <div class="lab-stat"><div class="num">2</div><div class="lbl" data-pt="Continentes">Continents</div></div>
+    </div>
+
+    <div class="eco-block">
+    <div class="eco-columns">
+    <div class="mindmap">
+      <svg class="mindmap-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <line class="mm-line" x1="50" y1="50" x2="25" y2="16"></line>
+        <line class="mm-line" x1="50" y1="50" x2="75" y2="16"></line>
+        <line class="mm-line" x1="50" y1="50" x2="25" y2="84"></line>
+        <line class="mm-line" x1="50" y1="50" x2="75" y2="84"></line>
+      </svg>
+
+      <div class="mindmap-inner">
+        <div class="mm-node tl">
+          <div class="mm-node-head"><span class="mm-tag" data-pt="Professor / Mentor">Teacher / Mentor</span><h4>PEMAX</h4></div>
+          <p data-pt="Pedro Henrique Maximo — DJ e produtor musical na Europa desde 2017. Diretor criativo, empresário de artistas, engenheiro de áudio, e professor de processo criativo em música eletrônica. Começou a carreira em 2007 como DJ Max.">Pedro Henrique Maximo — DJ and music producer in Europe since 2017. Creative director, artist manager, audio engineer, and teacher of creative process in electronic music. Started his career in 2007 as DJ Max.</p>
+        </div>
+        <div class="mm-node tr">
+          <div class="mm-node-head"><span class="mm-tag" data-pt="Gestão &amp; estúdio">Management &amp; studio</span><h4>POMADEX</h4></div>
+          <p data-pt="Um estúdio criativo fundado em 2024 na Irlanda. Inclui a gravadora S.O.T.S. Records e é cofundador do Clube do Snare. Une música, design e direção artística para artistas comprometidos.">A creative studio founded in 2024 in Ireland. Includes the record label S.O.T.S. Records and is a co-founder of Clube o Snare. Unites music, design, and artistic direction for committed artists.</p>
+        </div>
+
+        <div class="mm-hub">
+          <span class="mm-hub-dot"></span>
+          <h3 data-pt="DJ LAB<br>Classes">DJ LAB<br>Classes</h3>
+          <span class="mm-hub-sub" data-pt="A escola de DJ">The DJ school</span>
+        </div>
+
+        <div class="mm-node bl">
+          <div class="mm-node-head"><span class="mm-tag" data-pt="Marca irmã">Sibling brand</span><h4>LAB Management</h4></div>
+          <p data-pt="Gestão de carreira artística — de identidade e posicionamento a bookings e oportunidades internacionais. Os caminhos de mentoria de 3 meses e 1 ano para DJs prontos para se profissionalizar.">Artistic career management — from identity and positioning to bookings and international opportunities. The 3-month and 1-year mentorship paths for DJs ready to professionalize.</p>
+        </div>
+        <div class="mm-node br">
+          <div class="mm-node-head"><span class="mm-tag" data-pt="Marca irmã">Sibling brand</span><h4>LAB Productions</h4></div>
+          <p data-pt="Produção musical e processo criativo — aulas e uma plataforma online para artistas construindo seu som, do primeiro projeto a uma faixa finalizada e pronta para lançar.">Music production and creative process — lessons and an online platform for artists building their sound, from first project to a finished, releasable track.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="presence-map">
+      <div class="pm-head"><span class="pm-tag" data-pt="Onde estamos, presencialmente">Where we are, in person</span></div>
+      <div class="pm-wrap">
+<svg class="pm-svg" viewBox="0 0 360 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g class="pm-dots"><circle cx="36.0" cy="23.0" r="1.1"/><circle cx="45.0" cy="23.0" r="1.1"/><circle cx="54.0" cy="32.0" r="1.1"/><circle cx="54.0" cy="23.0" r="1.1"/><circle cx="63.0" cy="50.0" r="1.1"/><circle cx="63.0" cy="41.0" r="1.1"/><circle cx="63.0" cy="32.0" r="1.1"/><circle cx="63.0" cy="23.0" r="1.1"/><circle cx="63.0" cy="14.0" r="1.1"/><circle cx="72.0" cy="59.0" r="1.1"/><circle cx="72.0" cy="50.0" r="1.1"/><circle cx="72.0" cy="41.0" r="1.1"/><circle cx="72.0" cy="32.0" r="1.1"/><circle cx="72.0" cy="23.0" r="1.1"/><circle cx="72.0" cy="14.0" r="1.1"/><circle cx="81.0" cy="59.0" r="1.1"/><circle cx="81.0" cy="50.0" r="1.1"/><circle cx="81.0" cy="41.0" r="1.1"/><circle cx="81.0" cy="32.0" r="1.1"/><circle cx="81.0" cy="23.0" r="1.1"/><circle cx="81.0" cy="14.0" r="1.1"/><circle cx="90.0" cy="59.0" r="1.1"/><circle cx="90.0" cy="50.0" r="1.1"/><circle cx="90.0" cy="41.0" r="1.1"/><circle cx="90.0" cy="32.0" r="1.1"/><circle cx="90.0" cy="23.0" r="1.1"/><circle cx="99.0" cy="59.0" r="1.1"/><circle cx="99.0" cy="50.0" r="1.1"/><circle cx="99.0" cy="41.0" r="1.1"/><circle cx="99.0" cy="32.0" r="1.1"/><circle cx="99.0" cy="23.0" r="1.1"/><circle cx="108.0" cy="95.0" r="1.1"/><circle cx="108.0" cy="86.0" r="1.1"/><circle cx="108.0" cy="41.0" r="1.1"/><circle cx="108.0" cy="32.0" r="1.1"/><circle cx="117.0" cy="113.0" r="1.1"/><circle cx="117.0" cy="104.0" r="1.1"/><circle cx="117.0" cy="41.0" r="1.1"/><circle cx="126.0" cy="41.0" r="1.1"/><circle cx="171.0" cy="68.0" r="1.1"/><circle cx="171.0" cy="59.0" r="1.1"/><circle cx="180.0" cy="77.0" r="1.1"/><circle cx="180.0" cy="68.0" r="1.1"/><circle cx="180.0" cy="59.0" r="1.1"/><circle cx="180.0" cy="50.0" r="1.1"/><circle cx="180.0" cy="41.0" r="1.1"/><circle cx="189.0" cy="86.0" r="1.1"/><circle cx="189.0" cy="77.0" r="1.1"/><circle cx="189.0" cy="68.0" r="1.1"/><circle cx="189.0" cy="59.0" r="1.1"/><circle cx="189.0" cy="50.0" r="1.1"/><circle cx="189.0" cy="41.0" r="1.1"/><circle cx="189.0" cy="32.0" r="1.1"/><circle cx="198.0" cy="113.0" r="1.1"/><circle cx="198.0" cy="104.0" r="1.1"/><circle cx="198.0" cy="95.0" r="1.1"/><circle cx="198.0" cy="86.0" r="1.1"/><circle cx="198.0" cy="77.0" r="1.1"/><circle cx="198.0" cy="68.0" r="1.1"/><circle cx="198.0" cy="59.0" r="1.1"/><circle cx="198.0" cy="41.0" r="1.1"/><circle cx="198.0" cy="32.0" r="1.1"/><circle cx="207.0" cy="113.0" r="1.1"/><circle cx="207.0" cy="104.0" r="1.1"/><circle cx="207.0" cy="95.0" r="1.1"/><circle cx="207.0" cy="86.0" r="1.1"/><circle cx="207.0" cy="77.0" r="1.1"/><circle cx="207.0" cy="68.0" r="1.1"/><circle cx="207.0" cy="59.0" r="1.1"/><circle cx="207.0" cy="32.0" r="1.1"/><circle cx="216.0" cy="104.0" r="1.1"/><circle cx="216.0" cy="95.0" r="1.1"/><circle cx="216.0" cy="86.0" r="1.1"/><circle cx="216.0" cy="77.0" r="1.1"/><circle cx="216.0" cy="32.0" r="1.1"/><circle cx="216.0" cy="23.0" r="1.1"/><circle cx="225.0" cy="86.0" r="1.1"/><circle cx="225.0" cy="77.0" r="1.1"/><circle cx="225.0" cy="41.0" r="1.1"/><circle cx="225.0" cy="32.0" r="1.1"/><circle cx="225.0" cy="23.0" r="1.1"/><circle cx="234.0" cy="50.0" r="1.1"/><circle cx="234.0" cy="41.0" r="1.1"/><circle cx="234.0" cy="32.0" r="1.1"/><circle cx="234.0" cy="23.0" r="1.1"/><circle cx="243.0" cy="59.0" r="1.1"/><circle cx="243.0" cy="50.0" r="1.1"/><circle cx="243.0" cy="41.0" r="1.1"/><circle cx="243.0" cy="32.0" r="1.1"/><circle cx="243.0" cy="23.0" r="1.1"/><circle cx="252.0" cy="68.0" r="1.1"/><circle cx="252.0" cy="59.0" r="1.1"/><circle cx="252.0" cy="50.0" r="1.1"/><circle cx="252.0" cy="41.0" r="1.1"/><circle cx="252.0" cy="32.0" r="1.1"/><circle cx="252.0" cy="23.0" r="1.1"/><circle cx="261.0" cy="68.0" r="1.1"/><circle cx="261.0" cy="59.0" r="1.1"/><circle cx="261.0" cy="50.0" r="1.1"/><circle cx="261.0" cy="41.0" r="1.1"/><circle cx="261.0" cy="32.0" r="1.1"/><circle cx="261.0" cy="23.0" r="1.1"/><circle cx="270.0" cy="59.0" r="1.1"/><circle cx="270.0" cy="50.0" r="1.1"/><circle cx="270.0" cy="41.0" r="1.1"/><circle cx="270.0" cy="32.0" r="1.1"/><circle cx="270.0" cy="23.0" r="1.1"/><circle cx="279.0" cy="68.0" r="1.1"/><circle cx="279.0" cy="59.0" r="1.1"/><circle cx="279.0" cy="50.0" r="1.1"/><circle cx="279.0" cy="41.0" r="1.1"/><circle cx="279.0" cy="32.0" r="1.1"/><circle cx="279.0" cy="23.0" r="1.1"/><circle cx="288.0" cy="68.0" r="1.1"/><circle cx="288.0" cy="59.0" r="1.1"/><circle cx="288.0" cy="50.0" r="1.1"/><circle cx="288.0" cy="41.0" r="1.1"/><circle cx="288.0" cy="32.0" r="1.1"/><circle cx="288.0" cy="23.0" r="1.1"/><circle cx="288.0" cy="14.0" r="1.1"/><circle cx="297.0" cy="113.0" r="1.1"/><circle cx="297.0" cy="59.0" r="1.1"/><circle cx="297.0" cy="50.0" r="1.1"/><circle cx="297.0" cy="41.0" r="1.1"/><circle cx="297.0" cy="32.0" r="1.1"/><circle cx="297.0" cy="23.0" r="1.1"/><circle cx="297.0" cy="14.0" r="1.1"/><circle cx="306.0" cy="113.0" r="1.1"/><circle cx="306.0" cy="104.0" r="1.1"/><circle cx="306.0" cy="41.0" r="1.1"/><circle cx="306.0" cy="32.0" r="1.1"/><circle cx="306.0" cy="23.0" r="1.1"/><circle cx="306.0" cy="14.0" r="1.1"/><circle cx="315.0" cy="113.0" r="1.1"/><circle cx="315.0" cy="104.0" r="1.1"/><circle cx="315.0" cy="32.0" r="1.1"/><circle cx="315.0" cy="23.0" r="1.1"/><circle cx="315.0" cy="14.0" r="1.1"/><circle cx="324.0" cy="122.0" r="1.1"/><circle cx="324.0" cy="113.0" r="1.1"/><circle cx="324.0" cy="104.0" r="1.1"/><circle cx="324.0" cy="32.0" r="1.1"/><circle cx="324.0" cy="23.0" r="1.1"/><circle cx="324.0" cy="14.0" r="1.1"/><circle cx="333.0" cy="113.0" r="1.1"/><circle cx="333.0" cy="23.0" r="1.1"/><circle cx="333.0" cy="14.0" r="1.1"/><circle cx="342.0" cy="23.0" r="1.1"/></g><g class="pm-dots-hl"><circle class="pm-hl" cx="171.0" cy="32.2" r="1.5"/><circle class="pm-hl" cx="173.0" cy="32.2" r="1.5"/><circle class="pm-hl" cx="173.0" cy="30.2" r="1.5"/><circle class="pm-hl" cx="172.0" cy="46.5" r="1.5"/><circle class="pm-hl" cx="172.0" cy="44.5" r="1.5"/><circle class="pm-hl" cx="109.4" cy="95.2" r="1.5"/><circle class="pm-hl" cx="109.4" cy="91.8" r="1.5"/><circle class="pm-hl" cx="109.4" cy="88.4" r="1.5"/><circle class="pm-hl" cx="112.8" cy="95.2" r="1.5"/><circle class="pm-hl" cx="112.8" cy="91.8" r="1.5"/><circle class="pm-hl" cx="112.8" cy="88.4" r="1.5"/><circle class="pm-hl" cx="112.8" cy="85.0" r="1.5"/><circle class="pm-hl" cx="116.2" cy="98.6" r="1.5"/><circle class="pm-hl" cx="116.2" cy="95.2" r="1.5"/><circle class="pm-hl" cx="116.2" cy="91.8" r="1.5"/><circle class="pm-hl" cx="116.2" cy="88.4" r="1.5"/><circle class="pm-hl" cx="116.2" cy="85.0" r="1.5"/><circle class="pm-hl" cx="119.6" cy="102.0" r="1.5"/><circle class="pm-hl" cx="119.6" cy="98.6" r="1.5"/><circle class="pm-hl" cx="119.6" cy="95.2" r="1.5"/><circle class="pm-hl" cx="119.6" cy="91.8" r="1.5"/><circle class="pm-hl" cx="119.6" cy="88.4" r="1.5"/><circle class="pm-hl" cx="119.6" cy="85.0" r="1.5"/><circle class="pm-hl" cx="119.6" cy="81.6" r="1.5"/><circle class="pm-hl" cx="123.0" cy="112.2" r="1.5"/><circle class="pm-hl" cx="123.0" cy="108.8" r="1.5"/><circle class="pm-hl" cx="123.0" cy="105.4" r="1.5"/><circle class="pm-hl" cx="123.0" cy="102.0" r="1.5"/><circle class="pm-hl" cx="123.0" cy="98.6" r="1.5"/><circle class="pm-hl" cx="123.0" cy="95.2" r="1.5"/><circle class="pm-hl" cx="123.0" cy="91.8" r="1.5"/><circle class="pm-hl" cx="123.0" cy="88.4" r="1.5"/><circle class="pm-hl" cx="123.0" cy="85.0" r="1.5"/><circle class="pm-hl" cx="126.4" cy="115.6" r="1.5"/><circle class="pm-hl" cx="126.4" cy="112.2" r="1.5"/><circle class="pm-hl" cx="126.4" cy="108.8" r="1.5"/><circle class="pm-hl" cx="126.4" cy="105.4" r="1.5"/><circle class="pm-hl" cx="126.4" cy="102.0" r="1.5"/><circle class="pm-hl" cx="126.4" cy="98.6" r="1.5"/><circle class="pm-hl" cx="126.4" cy="95.2" r="1.5"/><circle class="pm-hl" cx="126.4" cy="91.8" r="1.5"/><circle class="pm-hl" cx="126.4" cy="88.4" r="1.5"/><circle class="pm-hl" cx="126.4" cy="85.0" r="1.5"/><circle class="pm-hl" cx="129.8" cy="112.2" r="1.5"/><circle class="pm-hl" cx="129.8" cy="108.8" r="1.5"/><circle class="pm-hl" cx="129.8" cy="105.4" r="1.5"/><circle class="pm-hl" cx="129.8" cy="102.0" r="1.5"/><circle class="pm-hl" cx="129.8" cy="98.6" r="1.5"/><circle class="pm-hl" cx="129.8" cy="95.2" r="1.5"/><circle class="pm-hl" cx="129.8" cy="91.8" r="1.5"/><circle class="pm-hl" cx="129.8" cy="88.4" r="1.5"/><circle class="pm-hl" cx="129.8" cy="85.0" r="1.5"/><circle class="pm-hl" cx="133.2" cy="108.8" r="1.5"/><circle class="pm-hl" cx="133.2" cy="105.4" r="1.5"/><circle class="pm-hl" cx="133.2" cy="102.0" r="1.5"/><circle class="pm-hl" cx="133.2" cy="98.6" r="1.5"/><circle class="pm-hl" cx="133.2" cy="95.2" r="1.5"/><circle class="pm-hl" cx="133.2" cy="91.8" r="1.5"/><circle class="pm-hl" cx="133.2" cy="88.4" r="1.5"/><circle class="pm-hl" cx="136.6" cy="105.4" r="1.5"/><circle class="pm-hl" cx="136.6" cy="102.0" r="1.5"/><circle class="pm-hl" cx="136.6" cy="98.6" r="1.5"/><circle class="pm-hl" cx="136.6" cy="95.2" r="1.5"/><circle class="pm-hl" cx="136.6" cy="91.8" r="1.5"/><circle class="pm-hl" cx="136.6" cy="88.4" r="1.5"/><circle class="pm-hl" cx="140.0" cy="102.0" r="1.5"/><circle class="pm-hl" cx="140.0" cy="98.6" r="1.5"/><circle class="pm-hl" cx="140.0" cy="95.2" r="1.5"/><circle class="pm-hl" cx="140.0" cy="91.8" r="1.5"/><circle class="pm-hl" cx="143.4" cy="95.2" r="1.5"/></g></svg>
+        <div class="pm-pins">
+          <div class="pm-pin" style="left:47.8%;top:21.3%;"><span class="pm-pin-dot"></span><span class="pm-pin-label" data-pt="Dublin, Irlanda">Dublin, Ireland</span></div>
+          <div class="pm-pin" style="left:47.8%;top:30.7%;"><span class="pm-pin-dot"></span><span class="pm-pin-label" data-pt="Lisboa, Portugal">Lisbon, Portugal</span></div>
+          <div class="pm-pin" style="left:35.3%;top:63.3%;"><span class="pm-pin-dot"></span><span class="pm-pin-label" data-pt="Santa Catarina, Brasil">Santa Catarina, Brazil</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</section>
+<!-- ============ FOOTER ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-block">
+      <div class="footer-brand">
+        <img id="footerLogo" src="data:image/png;base64,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" alt="Pomadex Productions">
+      </div>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="fk" data-pt="Direção">Direction</div>
+          <div class="fv" data-pt="Pemax">Pemax</div>
+          <div class="fk" style="margin-top:18px;" data-pt="Gestão">Management</div>
+          <div class="fv" data-pt="DJ LAB Pomadex<br>Dublin, Irlanda">DJ LAB Pomadex<br>Dublin, Ireland</div>
+        </div>
+        <div class="footer-col">
+          <div class="fk" data-pt="Contato">Contact</div>
+          <div class="fv"><a href="https://wa.me/353834764932">+353 083 476 4932</a></div>
+          <div class="fk" style="margin-top:18px;" data-pt="Email">Email</div>
+          <div class="fv"><a href="mailto:pomadexproductions@gmail.com">pomadexproductions@gmail.com</a></div>
+        </div>
+        <div class="footer-col">
+          <div class="fk" data-pt="Localizado em">Based in</div>
+          <div class="fv" data-pt="Dublin, Irlanda<br>Lisboa, Portugal<br>Santa Catarina, Brasil">Dublin, Ireland<br>Lisbon, Portugal<br>Santa Catarina, Brazil</div>
+          <div class="fk" style="margin-top:18px;" data-pt="Idiomas">Languages</div>
+          <div class="fv" data-pt="Inglês<br>Português">English<br>Portuguese</div>
+        </div>
+        <div class="footer-col">
+          <div class="fk" data-pt="LAB DJ">LAB DJ</div>
+          <ul class="footer-lab-list">
+            <li data-pt="Aulas de DJ (Lessons)">DJ Classes (Lessons)</li>
+            <li data-pt="Gestão DJ (3 meses)">DJ Management (3 months)</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="fk" data-pt="LAB Management">LAB Management</div>
+          <ul class="footer-lab-list">
+            <li data-pt="Gestão Artística (1 ano)">Artistic Management (1 year)</li>
+            <li data-pt="Gestão Artística (3 meses)">Artistic Management (3 months)</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="fk" data-pt="LAB Productions">LAB Productions</div>
+          <ul class="footer-lab-list">
+            <li data-pt="Gestão de Produções (3 meses)">Productions Management (3 months)</li>
+            <li data-pt="Produção Musical e Processo Criativo (Aulas)">Music Production and Creative Process (Lessons)</li>
+            <li data-pt="Plataforma Online (Curso)">Platform On-line (Course)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span data-pt="© Pomadex Productions 2026 — Todos os direitos reservados">© Pomadex Productions 2026 — All rights reserved</span>
+        <span data-pt="DJ LAB™">DJ LAB™</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ BOOKING MODAL (3 panels) ============ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close" data-pt-aria="Fechar">&times;</button>
+
+    <div class="modal-panel" data-panel="trial">
+      <div class="modal-eyebrow" data-pt="Pedido de Aula Experimental">Trial Lesson Request</div>
+      <h3 id="modalTitle" data-pt="Conheça o estúdio">Meet the studio</h3>
+      <p class="modal-sub" data-pt="Nos conte um pouco sobre você e entraremos em contato para agendar sua aula experimental.">Tell us a bit about you and we'll follow up to schedule your trial lesson.</p>
+      <form id="trialForm" onsubmit="handleSubmit(event)">
+        <div class="fg2">
+          <div class="fld"><label data-pt="Nome completo">Full name</label><input type="text" required></div>
+          <div class="fld"><label data-pt="Nome artístico (opcional)">Artist name (optional)</label><input type="text"></div>
+        </div>
+        <div class="fg2">
+          <div class="fld"><label data-pt="Telefone">Phone</label><input type="tel" required></div>
+          <div class="fld"><label data-pt="Email">Email</label><input type="email" required></div>
+        </div>
+        <div class="fld">
+          <label data-pt="Local preferido">Preferred location</label>
+          <select><option data-pt="Dublin, Irlanda">Dublin, Ireland</option><option data-pt="Lisboa, Portugal">Lisbon, Portugal</option><option data-pt="Santa Catarina, Brasil">Santa Catarina, Brazil</option></select>
+        </div>
+        <div class="fld"><label data-pt="Mensagem">Message</label><textarea placeholder="Your experience level, preferred day/time..." data-pt-placeholder="Seu nível de experiência, dia/horário preferido..."></textarea></div>
+        <button type="submit" class="btn-s" style="width:100%;" data-pt="Enviar pedido">Send request</button>
+        <p class="form-note" data-pt="Vamos te retornar por telefone ou email para confirmar seu horário.">We'll get back to you by phone or email to confirm your slot.</p>
+      </form>
+    </div>
+
+    <div class="modal-panel" data-panel="lessons" style="display:none;">
+      <div class="modal-eyebrow" data-pt="Inscrição no Curso">Course Enrollment</div>
+      <h3 data-pt="Agende suas aulas">Book your lessons</h3>
+      <p class="modal-sub" data-pt="Escolha seu caminho e vamos marcar sua reunião de alinhamento.">Choose your path and we'll set up your alignment meeting.</p>
+      <form id="lessonsForm" onsubmit="handleSubmit(event)">
+        <div class="fg2">
+          <div class="fld"><label data-pt="Nome completo">Full name</label><input type="text" required></div>
+          <div class="fld"><label data-pt="Telefone">Phone</label><input type="tel" required></div>
+        </div>
+        <div class="fld"><label data-pt="Email">Email</label><input type="email" required></div>
+        <div class="fld">
+          <label data-pt="Caminho do curso">Course path</label>
+          <div class="opts c3">
+            <div class="opt" onclick="selectOpt(this)" data-pt="<span class='opt-dot'></span>Digital"><span class="opt-dot"></span>Digital</div>
+            <div class="opt" onclick="selectOpt(this)" data-pt="<span class='opt-dot'></span>Analógico"><span class="opt-dot"></span>Analog</div>
+            <div class="opt" onclick="selectOpt(this)" data-pt="<span class='opt-dot'></span>Curso Completo"><span class="opt-dot"></span>Full Course</div>
+          </div>
+        </div>
+        <div class="fld">
+          <label>Preferred location</label>
+          <select><option>Dublin, Ireland</option><option>Lisbon, Portugal</option><option>Santa Catarina, Brazil</option></select>
+        </div>
+        <div class="fld"><label data-pt="Mais alguma coisa?">Anything else?</label><textarea placeholder="Package size, availability, goals..." data-pt-placeholder="Tamanho do pacote, disponibilidade, objetivos..."></textarea></div>
+        <button type="submit" class="btn-s" style="width:100%;" data-pt="Solicitar inscrição">Request enrollment</button>
+        <p class="form-note" data-pt="Vamos entrar em contato para marcar sua reunião de alinhamento e confirmar seu pacote.">We'll reach out to schedule your alignment meeting and confirm your package.</p>
+      </form>
+    </div>
+
+    <div class="modal-panel" data-panel="gift" style="display:none;">
+      <div class="modal-eyebrow" data-pt="Vale-Presente">Gift Voucher</div>
+      <h3 data-pt="Dê a alguém a cabine">Give someone the booth</h3>
+      <p class="modal-sub" data-pt="Nos conte um pouco sobre o presente e vamos montar o vale.">Tell us a bit about the gift and we'll set up the voucher.</p>
+      <form id="giftForm" onsubmit="handleSubmit(event)">
+        <div class="fg2">
+          <div class="fld"><label data-pt="Seu nome">Your name</label><input type="text" required></div>
+          <div class="fld"><label data-pt="Nome do presenteado">Recipient's name</label><input type="text" required></div>
+        </div>
+        <div class="fg2">
+          <div class="fld"><label data-pt="Telefone">Phone</label><input type="tel" required></div>
+          <div class="fld"><label data-pt="Email">Email</label><input type="email" required></div>
+        </div>
+        <div class="fld">
+          <label data-pt="Valor do presente">Gift value</label>
+          <select><option data-pt="1 caminho de curso (Digital, Analógico ou Completo)">1 course path (Digital, Analog or Full)</option><option data-pt="Pacote avulso (2 ou 4 aulas)">Single package (2 or 4 classes)</option><option data-pt="Ainda não sei">Not sure yet</option></select>
+        </div>
+        <div class="fld"><label data-pt="Mensagem pessoal (opcional)">Personal message (optional)</label><textarea placeholder="A note to include with the voucher..." data-pt-placeholder="Um recado para incluir com o vale..."></textarea></div>
+        <button type="submit" class="btn-s" style="width:100%;" data-pt="Solicitar vale">Request voucher</button>
+        <p class="form-note" data-pt="Vamos confirmar os detalhes e enviar o vale para combinar a entrega.">We'll confirm the details and send the voucher to arrange delivery.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  // ---- i18n (EN / PT toggle) ----
+  (function(){
+    function initI18n(){
+      document.querySelectorAll('[data-pt]').forEach(function(el){
+        if(!el.hasAttribute('data-en')) el.setAttribute('data-en', el.innerHTML);
+      });
+      document.querySelectorAll('[data-pt-placeholder]').forEach(function(el){
+        if(!el.hasAttribute('data-en-placeholder')) el.setAttribute('data-en-placeholder', el.getAttribute('placeholder') || '');
+      });
+      var closeBtn = document.querySelector('.modal-close[data-pt-aria]');
+      if(closeBtn && !closeBtn.hasAttribute('data-en-aria')) closeBtn.setAttribute('data-en-aria', closeBtn.getAttribute('aria-label') || '');
+    }
+    window.setLang = function(lang){
+      document.querySelectorAll('[data-pt]').forEach(function(el){
+        var val = el.getAttribute('data-' + lang);
+        if(val !== null) el.innerHTML = val;
+      });
+      document.querySelectorAll('[data-pt-placeholder]').forEach(function(el){
+        var val = el.getAttribute(lang === 'pt' ? 'data-pt-placeholder' : 'data-en-placeholder');
+        if(val !== null) el.setAttribute('placeholder', val);
+      });
+      var closeBtn = document.querySelector('.modal-close[data-pt-aria]');
+      if(closeBtn){
+        var val = lang === 'pt' ? closeBtn.getAttribute('data-pt-aria') : closeBtn.getAttribute('data-en-aria');
+        if(val) closeBtn.setAttribute('aria-label', val);
+      }
+      document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+      document.querySelectorAll('.lang-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+      document.title = lang === 'pt'
+        ? 'DJ LAB Classes — Um Projeto da Pomadex Productions'
+        : 'DJ LAB Classes — A Project by Pomadex Productions';
+    };
+    initI18n();
+  })();
+
+  // size the 3D turntable (sets --tw in px so 3D box faces can use real units)
+  (function(){
+    var tts = document.querySelectorAll('[data-tt]');
+    function sizeTT(el){
+      var w = el.clientWidth || el.getBoundingClientRect().width;
+      if(!w) return;
+      el.style.setProperty('--tw', w + 'px');
+    }
+    tts.forEach(function(el){
+      sizeTT(el);
+      if(window.ResizeObserver){ new ResizeObserver(function(){ sizeTT(el); }).observe(el); }
+      else { window.addEventListener('resize', function(){ sizeTT(el); }); }
+    });
+  })();
+
+  // nav shrink on scroll + segmented section-progress bar (mirrors nav order)
+  const nav = document.getElementById('mainNav');
+  const progressBar = document.getElementById('scrollProgress');
+  const vinylStage = document.querySelector('.vinyl-stage');
+
+  const navLinkEls = document.querySelectorAll('#navLinks a[data-sec]');
+  // progress bar tracks every numbered page on the site (not just the trimmed nav menu),
+  // so scrolling always maps proportionally across the true page count
+  const progressSections = Array.from(document.querySelectorAll('section')).filter(sec => sec.querySelector(':scope > .wrap > .label-row .label-num, :scope > .wrap.reveal > .label-row .label-num'));
+  const progressSegs = progressSections.map(sec=>{
+    if(!progressBar) return null;
+    const labelEl = sec.querySelector('.label-row .label-num');
+    const rawLabel = labelEl ? labelEl.textContent.replace(/^\d+\s*—\s*/, '') : sec.id;
+    const seg = document.createElement('div');
+    seg.className = 'sp-seg';
+    const fill = document.createElement('div');
+    fill.className = 'sp-seg-fill';
+    const label = document.createElement('span');
+    label.className = 'sp-seg-label';
+    label.textContent = rawLabel;
+    seg.appendChild(fill);
+    seg.appendChild(label);
+    seg.addEventListener('click', ()=>{ sec.scrollIntoView({behavior:'smooth', block:'start'}); });
+    progressBar.appendChild(seg);
+    return {el:seg, fill:fill, section:sec, dataSec:sec.id};
+  }).filter(Boolean);
+
+  function updateProgressSegs(){
+    progressSegs.forEach(s=>{
+      const rect = s.section.getBoundingClientRect();
+      const total = rect.height || 1;
+      const passed = -rect.top;
+      let pct = (passed/total)*100;
+      if(pct < 0) pct = 0;
+      if(pct > 100) pct = 100;
+      s.fill.style.width = pct + '%';
+    });
+  }
+
+  function syncNavHeight(){
+    if(!progressBar || !nav) return;
+    progressBar.style.top = nav.getBoundingClientRect().height + 'px';
+  }
+
+  window.addEventListener('scroll', ()=>{
+    const scrollY = window.scrollY;
+    if(scrollY > 40){ nav.classList.add('scrolled'); if(progressBar) progressBar.classList.add('scrolled'); }
+    else { nav.classList.remove('scrolled'); if(progressBar) progressBar.classList.remove('scrolled'); }
+
+    syncNavHeight();
+    updateProgressSegs();
+
+    if(vinylStage && scrollY < window.innerHeight){
+      vinylStage.style.transform = `translateY(${scrollY * 0.18}px)`;
+    }
+  }, {passive:true});
+  window.addEventListener('resize', ()=>{ syncNavHeight(); updateProgressSegs(); });
+  syncNavHeight();
+  updateProgressSegs();
+
+  // active-section nav highlighting (scroll-spy) — only the 5 trimmed nav links
+  const spySections = Array.from(navLinkEls).map(a=>document.getElementById(a.dataset.sec)).filter(Boolean);
+  if(spySections.length){
+    const spyIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const link = document.querySelector('#navLinks a[data-sec="'+entry.target.id+'"]');
+        if(!link) return;
+        if(entry.isIntersecting){
+          navLinkEls.forEach(a=>a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    spySections.forEach(sec=>spyIO.observe(sec));
+  }
+
+  // progress-segment active highlighting — every numbered page, independent of the trimmed nav
+  if(progressSegs.length){
+    const progressSpyIO = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          progressSegs.forEach(s=>s.el.classList.toggle('active', s.dataSec === entry.target.id));
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px', threshold:0});
+    progressSegs.forEach(s=>progressSpyIO.observe(s.section));
+  }
+
+  // subtle mouse-tilt on badge
+  const vinylTilt = document.querySelector('.vinyl-tilt');
+  if(vinylStage && vinylTilt){
+    vinylStage.addEventListener('mousemove', (e)=>{
+      const rect = vinylStage.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      vinylTilt.style.transform = `perspective(700px) rotateY(${x*12}deg) rotateX(${-y*12}deg)`;
+    });
+    vinylStage.addEventListener('mouseleave', ()=>{
+      vinylTilt.style.transform = '';
+    });
+  }
+
+  // FAQ accordion
+  function toggleFaq(el){
+    const item = el.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      if(i!==item){ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight = null; }
+    });
+    if(isOpen){ item.classList.remove('open'); answer.style.maxHeight = null; }
+    else { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; }
+  }
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  // step-by-step reveal (enrollment steps) — opens one block at a time as it scrolls into view
+  const stepRows = document.querySelectorAll('[data-step-reveal]');
+  const stepIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); stepIO.unobserve(e.target); } });
+  }, {threshold:0.3});
+  stepRows.forEach(el=>stepIO.observe(el));
+
+  // count-up animation for Reach stats
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const countEls = document.querySelectorAll('.fb-num[data-count]');
+  function animateCount(el){
+    const target = parseInt(el.dataset.count, 10) || 0;
+    const prefix = el.dataset.prefix || '';
+    if(prefersReduced){ el.textContent = prefix + target; return; }
+    const dur = 1300;
+    const t0 = performance.now();
+    function tick(now){
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = prefix + Math.round(target * eased);
+      if(p < 1) requestAnimationFrame(tick);
+      else el.textContent = prefix + target;
+    }
+    requestAnimationFrame(tick);
+  }
+  if(countEls.length){
+    const countIO = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ animateCount(e.target); countIO.unobserve(e.target); }
+      });
+    }, {threshold:0.4});
+    countEls.forEach(el=>countIO.observe(el));
+  }
+
+  // modal
+  const overlay = document.getElementById('modalOverlay');
+  function openModal(type){
+    type = type || 'trial';
+    document.querySelectorAll('.modal-panel').forEach(function(p){
+      p.style.display = (p.getAttribute('data-panel') === type) ? '' : 'none';
+    });
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e){
+    if(e.target === overlay) closeModal();
+  }
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+  // single-select pill options (course path, etc.)
+  function selectOpt(el){
+    const group = el.parentElement;
+    group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
+    el.classList.add('sel');
+  }
+
+  // generic form submit (works for trial / lessons / gift forms)
+  function handleSubmit(e){
+    e.preventDefault();
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Request sent ✓';
+    submitBtn.disabled = true;
+    setTimeout(()=>{
+      closeModal();
+      form.reset();
+      form.querySelectorAll('.opt.sel').forEach(function(o){ o.classList.remove('sel'); });
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }, 1600);
+  }
+
+</script>
+
+</body>
+</html>
