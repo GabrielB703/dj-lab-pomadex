@@ -1435,4 +1435,12 @@
       closeModal();
       form.reset();
       form.querySelectorAll('.opt.sel').forEach(function(o){ o.classList.remove('sel'); });
-      submitBtn.textContent = originalT
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }, 1600);
+  }
+
+</script>
+
+</body>
+</html>
