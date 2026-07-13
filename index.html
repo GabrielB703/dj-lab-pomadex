@@ -127,7 +127,6 @@
 .dj-tl-tick:last-child::before{left:100%;}
 @media(max-width:700px){.dj-tl-row{grid-template-columns:1fr;gap:8px;}.dj-tl-axis{display:none;}}.lang-toggle{display:flex;align-items:center;border:1px solid var(--line);border-radius:100px;overflow:hidden;flex:none;margin-left:4px;}.lang-btn{font-family:var(--mono);font-size:10px;letter-spacing:0.05em;padding:8px 12px;background:none;border:none;color:rgba(246,244,238,0.5);cursor:pointer;transition:all .2s;}.lang-btn.active{background:var(--cyan);color:var(--ink);font-weight:700;}.lang-btn:not(.active):hover{color:var(--paper);}@media(max-width:480px){.lang-btn{padding:7px 9px;font-size:9px;}}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -1353,15 +1352,9 @@
   }
   document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
 
-  // ==== CONFIG: fill these in after following the setup guide ====
+  // ==== CONFIG ====
+  // URL of the Apps Script Web App (it both saves to the Sheet AND emails you a notification)
   const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwBCAYn_fTPtDDjlF-KwsE3i1pOJSutlCuWyYiCZphgfES9fRHXx54l6R4TJSVvP411/exec';
-  const EMAILJS_PUBLIC_KEY  = 'PASTE_YOUR_EMAILJS_PUBLIC_KEY_HERE';
-  const EMAILJS_SERVICE_ID  = 'PASTE_YOUR_EMAILJS_SERVICE_ID_HERE';
-  const EMAILJS_TEMPLATE_ID = 'PASTE_YOUR_EMAILJS_TEMPLATE_ID_HERE';
-
-  if (window.emailjs) {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  }
 
   // single-select pill options (course path, etc.) — also stores the picked value
   // in the form's hidden "course_path" field so it gets submitted.
@@ -1378,7 +1371,7 @@
 
   // generic form submit (works for trial / lessons / gift forms)
   // 1) appends a row to the matching Google Sheets tab via Apps Script
-  // 2) emails an admin notification via EmailJS
+  // 2) emails an admin notification (handled server-side by the same Apps Script)
   function handleSubmit(e){
     e.preventDefault();
     const form = e.target;
@@ -1391,42 +1384,19 @@
     data.page_url = window.location.href;
     data.submitted_at = new Date().toLocaleString();
 
-    // Human-readable label for which form this was (used in the email subject/body)
-    const FORM_LABELS = { trial: 'Book Trial Lesson', lessons: 'Book Lessons', gift: 'Gift Card' };
-    data.form_label = FORM_LABELS[data.form_type] || data.form_type;
-
-    // Builds a single readable block of text with every field filled in this
-    // form, so ONE EmailJS template can be reused for all 3 forms.
-    const FIELD_LABELS = {
-      full_name: 'Full name', artist_name: 'Artist name', recipient_name: "Recipient's name",
-      phone: 'Phone', email: 'Email', location: 'Preferred location', course_path: 'Course path',
-      gift_value: 'Gift value', message: 'Message', submitted_at: 'Submitted at', page_url: 'Page URL'
-    };
-    let summary = '';
-    Object.keys(FIELD_LABELS).forEach(function(key){
-      if (data[key]) summary += FIELD_LABELS[key] + ': ' + data[key] + '\n';
-    });
-    data.summary = summary;
-
-    // 1) Save to Google Sheets (fire-and-forget; Apps Script doesn't return CORS
-    // headers, so we use no-cors and just trust the request went through)
+    // Sends to the Apps Script Web App, which both appends a row to the
+    // matching Google Sheets tab AND emails an admin notification.
+    // (fire-and-forget; Apps Script doesn't return CORS headers, so we use
+    // no-cors and just trust the request went through)
     if (SHEETS_WEBAPP_URL && SHEETS_WEBAPP_URL.indexOf('PASTE_') === -1) {
       fetch(SHEETS_WEBAPP_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(data)
-      }).catch(function(err){ console.error('Sheets error:', err); });
+      }).catch(function(err){ console.error('Apps Script error:', err); });
     } else {
       console.warn('SHEETS_WEBAPP_URL not configured yet.');
-    }
-
-    // 2) Notify admin via EmailJS
-    if (window.emailjs && EMAILJS_SERVICE_ID.indexOf('PASTE_') === -1) {
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, data)
-        .catch(function(err){ console.error('EmailJS error:', err); });
-    } else {
-      console.warn('EmailJS not configured yet.');
     }
 
     submitBtn.textContent = 'Request sent ✓';
