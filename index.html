@@ -1063,6 +1063,27 @@
           <select name="location"><option data-pt="Dublin, Irlanda">Dublin, Ireland</option><option data-pt="Lisboa, Portugal">Lisbon, Portugal</option><option data-pt="Santa Catarina, Brasil">Santa Catarina, Brazil</option></select>
         </div>
         <div class="fld"><label data-pt="Nacionalidade">Nationality</label><input type="text" name="nationality" required></div>
+        <div class="fld">
+          <label data-pt="Melhor dia e horário para contato">Best day &amp; time to reach you</label>
+          <div class="fg2" style="grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+            <select name="preferred_day">
+              <option value="" data-pt="Dia da semana">Day of week</option>
+              <option data-pt="Segunda-feira">Monday</option>
+              <option data-pt="Terça-feira">Tuesday</option>
+              <option data-pt="Quarta-feira">Wednesday</option>
+              <option data-pt="Quinta-feira">Thursday</option>
+              <option data-pt="Sexta-feira">Friday</option>
+              <option data-pt="Sábado">Saturday</option>
+              <option data-pt="Domingo">Sunday</option>
+            </select>
+            <input type="text" name="preferred_time" placeholder="e.g. 3:00" data-pt-placeholder="ex: 15:00">
+          </div>
+          <input type="hidden" name="preferred_ampm" value="">
+          <div class="opts">
+            <div class="opt" onclick="selectAmPm(this,'AM')">AM</div>
+            <div class="opt" onclick="selectAmPm(this,'PM')">PM</div>
+          </div>
+        </div>
         <div class="fld"><label data-pt="Mensagem">Message</label><textarea name="message" placeholder="Your experience level, preferred day/time..." data-pt-placeholder="Seu nível de experiência, dia/horário preferido..."></textarea></div>
         <button type="submit" class="btn-s" style="width:100%;" data-pt="Enviar pedido">Send request</button>
         <p class="form-note" data-pt="Vamos te retornar por telefone ou email para confirmar seu horário.">We'll get back to you by phone or email to confirm your slot.</p>
@@ -1099,6 +1120,27 @@
           <select name="location"><option>Dublin, Ireland</option><option>Lisbon, Portugal</option><option>Santa Catarina, Brazil</option></select>
         </div>
         <div class="fld"><label data-pt="Nacionalidade">Nationality</label><input type="text" name="nationality" required></div>
+        <div class="fld">
+          <label data-pt="Melhor dia e horário para contato">Best day &amp; time to reach you</label>
+          <div class="fg2" style="grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+            <select name="preferred_day">
+              <option value="" data-pt="Dia da semana">Day of week</option>
+              <option data-pt="Segunda-feira">Monday</option>
+              <option data-pt="Terça-feira">Tuesday</option>
+              <option data-pt="Quarta-feira">Wednesday</option>
+              <option data-pt="Quinta-feira">Thursday</option>
+              <option data-pt="Sexta-feira">Friday</option>
+              <option data-pt="Sábado">Saturday</option>
+              <option data-pt="Domingo">Sunday</option>
+            </select>
+            <input type="text" name="preferred_time" placeholder="e.g. 3:00" data-pt-placeholder="ex: 15:00">
+          </div>
+          <input type="hidden" name="preferred_ampm" value="">
+          <div class="opts">
+            <div class="opt" onclick="selectAmPm(this,'AM')">AM</div>
+            <div class="opt" onclick="selectAmPm(this,'PM')">PM</div>
+          </div>
+        </div>
         <div class="fld"><label data-pt="Nível de conhecimento">Level of knowledge</label><textarea name="knowledge_level" placeholder="Beginner, some experience, advanced..." data-pt-placeholder="Iniciante, alguma experiência, avançado..."></textarea></div>
         <div class="fld"><label data-pt="O que você espera do curso?">What do you expect from the course?</label><textarea name="expectations" placeholder="Your goals, what you want to get out of it..." data-pt-placeholder="Seus objetivos, o que espera alcançar..."></textarea></div>
         <button type="submit" class="btn-s" style="width:100%;" data-pt="Solicitar inscrição">Request enrollment</button>
@@ -1413,6 +1455,17 @@
     const form = el.closest('form');
     const hidden = form ? form.querySelector('input[name="package"]') : null;
     if (hidden) hidden.value = label;
+  }
+
+  // single-select pill for AM/PM — stores the picked value in the form's
+  // hidden "preferred_ampm" field.
+  function selectAmPm(el, value) {
+    const group = el.parentElement;
+    group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
+    el.classList.add('sel');
+    const form = el.closest('form');
+    const hidden = form ? form.querySelector('input[name="preferred_ampm"]') : null;
+    if (hidden) hidden.value = value;
   }
 
   // single-select pill options (course path, etc.) — also stores the picked value
