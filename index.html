@@ -1062,6 +1062,7 @@
           <label data-pt="Local preferido">Preferred location</label>
           <select name="location"><option data-pt="Dublin, Irlanda">Dublin, Ireland</option><option data-pt="Lisboa, Portugal">Lisbon, Portugal</option><option data-pt="Santa Catarina, Brasil">Santa Catarina, Brazil</option></select>
         </div>
+        <div class="fld"><label data-pt="Nacionalidade">Nationality</label><input type="text" name="nationality" required></div>
         <div class="fld"><label data-pt="Mensagem">Message</label><textarea name="message" placeholder="Your experience level, preferred day/time..." data-pt-placeholder="Seu nível de experiência, dia/horário preferido..."></textarea></div>
         <button type="submit" class="btn-s" style="width:100%;" data-pt="Enviar pedido">Send request</button>
         <p class="form-note" data-pt="Vamos te retornar por telefone ou email para confirmar seu horário.">We'll get back to you by phone or email to confirm your slot.</p>
@@ -1075,6 +1076,7 @@
       <form id="lessonsForm" onsubmit="handleSubmit(event)">
         <input type="hidden" name="form_type" value="lessons">
         <input type="hidden" name="course_path" value="">
+        <input type="hidden" name="package" value="">
         <div class="fg2">
           <div class="fld"><label data-pt="Nome completo">Full name</label><input type="text" name="full_name" required></div>
           <div class="fld"><label data-pt="Telefone">Phone</label><input type="tel" name="phone" inputmode="numeric" pattern="[0-9]*" autocomplete="tel" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required></div>
@@ -1088,11 +1090,17 @@
             <div class="opt" onclick="selectOpt(this,'Full Course')" data-pt="<span class='opt-dot'></span>Curso Completo"><span class="opt-dot"></span>Full Course</div>
           </div>
         </div>
+        <div class="fld" id="packageField" style="display:none;">
+          <label data-pt="Pacote de aulas">Class package</label>
+          <div class="opts" id="packageOptions"></div>
+        </div>
         <div class="fld">
           <label>Preferred location</label>
           <select name="location"><option>Dublin, Ireland</option><option>Lisbon, Portugal</option><option>Santa Catarina, Brazil</option></select>
         </div>
-        <div class="fld"><label data-pt="Mais alguma coisa?">Anything else?</label><textarea name="message" placeholder="Package size, availability, goals..." data-pt-placeholder="Tamanho do pacote, disponibilidade, objetivos..."></textarea></div>
+        <div class="fld"><label data-pt="Nacionalidade">Nationality</label><input type="text" name="nationality" required></div>
+        <div class="fld"><label data-pt="Nível de conhecimento">Level of knowledge</label><textarea name="knowledge_level" placeholder="Beginner, some experience, advanced..." data-pt-placeholder="Iniciante, alguma experiência, avançado..."></textarea></div>
+        <div class="fld"><label data-pt="O que você espera do curso?">What do you expect from the course?</label><textarea name="expectations" placeholder="Your goals, what you want to get out of it..." data-pt-placeholder="Seus objetivos, o que espera alcançar..."></textarea></div>
         <button type="submit" class="btn-s" style="width:100%;" data-pt="Solicitar inscrição">Request enrollment</button>
         <p class="form-note" data-pt="Vamos entrar em contato para marcar sua reunião de alinhamento e confirmar seu pacote.">We'll reach out to schedule your alignment meeting and confirm your package.</p>
       </form>
@@ -1356,8 +1364,60 @@
   // URL of the Apps Script Web App (it both saves to the Sheet AND emails you a notification)
   const SHEETS_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwBCAYn_fTPtDDjlF-KwsE3i1pOJSutlCuWyYiCZphgfES9fRHXx54l6R4TJSVvP411/exec';
 
+  // Pricing table (from the Prices section) — used to render the package
+  // step after a course path is chosen in the Book Lessons form.
+  const COURSE_PACKAGES = {
+    'Digital': [
+      { classes: 2, hours: '4h', price: '€250' },
+      { classes: 4, hours: '8h', price: '€350' },
+      { classes: 6, hours: '12h', price: '€500' },
+      { classes: 8, hours: '16h', price: '€600' },
+      { classes: 10, hours: '20h', price: '€800' }
+    ],
+    'Analog': [
+      { classes: 4, hours: '8h', price: '€350' },
+      { classes: 6, hours: '12h', price: '€350' },
+      { classes: 8, hours: '16h', price: '€600' },
+      { classes: 10, hours: '20h', price: '€800' }
+    ],
+    'Full Course': [
+      { classes: 10, hours: '20h', price: '€800' },
+      { classes: 15, hours: '30h', price: '€1000' }
+    ]
+  };
+
+  // Renders the package options for the chosen course path inside the
+  // "Class package" field, and resets any previously chosen package.
+  function renderPackages(pathValue, form) {
+    const field = form.querySelector('#packageField');
+    const wrap = form.querySelector('#packageOptions');
+    const list = COURSE_PACKAGES[pathValue] || [];
+
+    wrap.innerHTML = list.map(function(p){
+      const label = p.classes + ' classes (' + p.hours + ') — ' + p.price;
+      return '<div class="opt" onclick="selectPackage(this,\'' + label + '\')">' + label + '</div>';
+    }).join('');
+
+    field.style.display = list.length ? '' : 'none';
+
+    const hidden = form.querySelector('input[name="package"]');
+    if (hidden) hidden.value = '';
+  }
+
+  // single-select pill for a chosen class package — stores the picked value
+  // in the form's hidden "package" field.
+  function selectPackage(el, label) {
+    const group = el.parentElement;
+    group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
+    el.classList.add('sel');
+    const form = el.closest('form');
+    const hidden = form ? form.querySelector('input[name="package"]') : null;
+    if (hidden) hidden.value = label;
+  }
+
   // single-select pill options (course path, etc.) — also stores the picked value
-  // in the form's hidden "course_path" field so it gets submitted.
+  // in the form's hidden "course_path" field so it gets submitted, and (for
+  // the lessons form) opens the matching package step.
   function selectOpt(el, value){
     const group = el.parentElement;
     group.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
@@ -1365,7 +1425,10 @@
     if (value !== undefined) {
       const form = el.closest('form');
       const hidden = form ? form.querySelector('input[name="course_path"]') : null;
-      if (hidden) hidden.value = value;
+      if (hidden) {
+        hidden.value = value;
+        if (form.querySelector('#packageField')) renderPackages(value, form);
+      }
     }
   }
 
@@ -1405,6 +1468,8 @@
       closeModal();
       form.reset();
       form.querySelectorAll('.opt.sel').forEach(function(o){ o.classList.remove('sel'); });
+      const packageField = form.querySelector('#packageField');
+      if (packageField) { packageField.style.display = 'none'; form.querySelector('#packageOptions').innerHTML = ''; }
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
     }, 1600);
